@@ -1,0 +1,111 @@
+.contact{
+  grid-column: 1/13;
+  grid-row: contact-start/contact-end;
+
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  align-items: center;
+
+  &--image{
+    margin-left: 20rem;
+    width: 40rem;
+    height: 40rem;
+  }
+
+  &--button{
+    float: right;
+    &,
+    &:visited,
+    &:active{
+      padding: 5px 2rem;
+      font-family: $font-medium;
+      font-size: 1.15rem;
+      border: 0.1px double #DFDFDF;
+      text-transform: uppercase;
+      background-color: white;
+      color: black;
+      border-radius: 5px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    &:hover{
+      color: black;
+      border: 0.1px double black;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all .2s;
+    }
+  }
+
+
+  &--detail{
+    display: flex;
+    flex-direction: column;
+    margin-left: 15rem;
+    width: 43rem;
+    &-header{
+      margin-bottom: 2rem;
+      &-text{
+        font-family: $font-medium;
+        font-size: 1.8rem;
+        font-weight: 500;
+        text-transform: capitalize;
+      }
+    }
+
+    &-formHolder{
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      margin-bottom: 2rem;
+
+      input[type=text]{
+        width: 41rem;
+        background-color: #DFDFDF;
+        border-width: 0;
+        border-radius: 5px;
+        padding: 1.2rem 1.2rem;
+        display: inline-block;
+        box-sizing: border-box;
+        border: 0;
+        outline:none;
+        &::placeholder{
+          font-family: $font-medium;
+        }
+      }
+      input[type=email]{
+        width: 41rem;
+        background-color: #DFDFDF;
+        border-width: 0;
+        border-radius: 5px;
+        padding: 1.2rem 1.2rem;
+        display: inline-block;
+        box-sizing: border-box;
+        border: 0;
+        outline:none;
+        &::placeholder{
+          font-family: $font-medium;
+        }
+      }
+      &--textarea{
+        width: 41rem;
+        border: 0.1px double #DFDFDF;
+        padding: 1.2rem 1.2rem;
+        outline: none;
+
+        &::placeholder{
+          font-family: $font-medium;
+          font-size: 1.2rem;
+        }
+      }
+
+      &--label{
+        font-family: $font-medium;
+        font-size: 1.2rem;
+        margin-bottom: 5px;
+        text-transform: capitalize;
+      }
+    }
+  }
+}

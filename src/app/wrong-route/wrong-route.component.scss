@@ -1,0 +1,39 @@
+@import '../sass/home/main';
+
+.container-wrong{
+  display: flex;
+  flex-direction: row;
+  align-content: center;
+  justify-content: center;
+  margin-top: 20rem;
+  position: relative;
+
+  &--holder{
+    position: absolute;
+    top: 22%;
+  }
+
+  &--header{
+    font-family: $font-Subheader;
+    font-size: 12.5rem;
+    letter-spacing: 25px;
+    color: cadetblue;
+  }
+
+  &--body{
+    margin-top: -2rem;
+    font-family: $font-medium;
+    font-size: 1.5rem;
+  }
+  &--link{
+    &,
+    &:visited,
+    &:active{
+      text-decoration: none;
+      color: white;
+      padding: 8px;
+      background-color: #3FB0B4;
+      border-radius: 3px;
+    }
+  }
+}

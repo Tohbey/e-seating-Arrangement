@@ -1,0 +1,34 @@
+.header{
+  grid-column: 1/13;
+  grid-row: header-start/header-end;
+  padding: 10px;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  justify-items: center;
+  align-items: center;
+
+  &-image{
+    width: 73rem;
+    height: 53rem;
+    background-size: contain;
+    margin-left: 6rem;
+  }
+
+  &-textHolder{
+    width: 43rem;
+    margin-left: -9rem;
+    &--header{
+      width: 37rem;
+      font-family: $font-Subheader;
+      font-size: 3rem;
+    }
+    &--body{
+      margin-top: 1rem;
+      width: 41rem;
+      color: #707070;
+      font-family: $font-primary;
+      font-size: 1.8rem;
+      text-align: justify;
+    }
+  }
+}

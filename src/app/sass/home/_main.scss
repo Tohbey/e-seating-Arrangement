@@ -1,0 +1,54 @@
+// FONT VARIABLES
+$font-primary: 'Poppins-Regular';
+$font-header: 'Poppins-Bold';
+$font-Subheader: 'Poppins-SemiBold';
+$font-medium: 'Poppins-Medium';
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+
+
+html{
+  box-sizing: border-box;
+  font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+}
+
+
+body {
+  font-family: $font-primary;
+  margin: 0;
+  padding: 0;
+}
+
+.container{
+  display: grid;
+  width:100%;
+  overflow: hidden;
+  grid-template-rows: [nav-start] 6rem [nav-end header-start] minmax(min-content,1fr) [header-end about-start] minmax(min-content,1fr) [about-end contact-start] 44rem [contact-end footer-start]25rem [footer-end];
+  grid-template-columns: repeat(12, minmax(min-content,14rem));
+}
+
+@font-face{
+  font-family: 'Poppins-Regular';
+  src: url("/assets/Poppins/Poppins-Regular.ttf");
+}
+
+@font-face{
+  font-family: 'Poppins-Bold';
+  src: url("/assets/Poppins/Poppins-Bold.ttf");
+}
+
+@font-face{
+  font-family: 'Poppins-SemiBold';
+  src: url("/assets/Poppins/Poppins-SemiBold.ttf");
+}
+
+@font-face{
+  font-family: 'Poppins-Medium';
+  src: url("/assets/Poppins/Poppins-Medium.ttf");
+}

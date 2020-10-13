@@ -1,0 +1,133 @@
+<div class="container">
+  <div class="navigation">
+    <div class="navigation--holder">
+      <div class="logo-container">
+        <img class="logo-img" src="../../../assets//Images//Logo-icon.png" />
+        <p class="logo-header">e-seating Arrangement</p>
+      </div>
+      <div class="nav">
+        <ul class="nav-list">
+          <li class="nav-items nav-items-active">home</li>
+          <li class="nav-items">about</li>
+          <li class="nav-items">contact</li>
+          <li class="nav-items">reviews</li>
+          <div style="display: flex;align-items: center;">
+            <a class="nav-button" [routerLink]="['/login']">login</a>
+            <img class="nav--icon" src="../../../assets/Images//Profile-icon.png" />
+          </div>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <header class="header">
+    <div>
+        <img class="header-image" src="../../../assets/Images//header-image.png" />
+    </div>
+    <div class="header-textHolder">
+      <p class="header-textHolder--header">Welcome to</p>
+      <p class="header-textHolder--header">e-Seating Arrangement</p>
+      <p class="header-textHolder--body">A web application that serves the purpose
+        of curbing examination malpractice in
+        universities, to help universities produce
+        students that are reliable and able to
+        defend their certificates </p>
+    </div>
+  </header>
+  <div class="about" id="about">
+    <div class="about-textHolder">
+      <p class="about-textHolder--header">About us</p>
+      <p class="about-textHolder--body">Lorem ipsum dolor sit amet, consetetur sadipscing
+        elitr, sed diam nonumy eirmod tempor invidunt ut
+        labore et dolore magna aliqu yam erat, sed diam
+        voluptua. At vero eos et accusam et justo duo et
+        ea rebum. Stet clita kasd gubergren, no sea takimata
+        sanctus est Lorem ipsum dolor sit amet. </p>
+    </div>
+    <div>
+      <img class="about--image" src="../../../assets//Images//character 16.svg"/>
+    </div>
+  </div>
+  <div class="contact" id="contact">
+    <div>
+      <img class="contact--image" src="../../../assets//Images//character 24.svg" />
+    </div>
+    <div class="contact--detail">
+      <div class="contact--detail-header">
+        <p class="contact--detail-header-text">Contact us</p>
+      </div>
+      <div class="contact--detail-formHolder">
+        <label class="contact--detail-formHolder--label">Name</label>
+        <input type="text" placeholder="John doe" />
+      </div>
+      <div class="contact--detail-formHolder">
+        <label class="contact--detail-formHolder--label">Email</label>
+        <input type="email" placeholder="error@mail.com" />
+      </div>
+      <div class="contact--detail-formHolder">
+        <label class="contact--detail-formHolder--label">Reviews</label>
+        <textarea class="contact--detail-formHolder--textarea" cols="5" rows="5" type="text" placeholder="Type something..."></textarea>
+      </div>
+      <div>
+        <button class="contact--button" type="submit">Submit</button>
+      </div>
+    </div>
+  </div>
+  <footer class="footer">
+      <div class="footer--1">
+        <div class="footer--1--header">
+          <p class="footer--1--header-text">e-Seating Arrangment</p>
+          <img class="footer--1--header-icon" src="../../../assets//Images//Logo-icon.png" />
+        </div>
+        <p class="footer--1--body">Lorem ipsum dolor sit amet, consetetur
+          sadipscing  elitr, sed diam nonumy eirm
+          od tempor invidunt ut hjknlmmmmmmm
+          </p>
+      </div>
+      <div class="footer--2">
+        <div class="footer--2-header">
+          <p class="footer--2-header--text">Contact us</p>
+        </div>
+        <div class="footer--2-body">
+          <p class="footer--2-body--text">+(234) 813 607 2373</p>
+          <p class="footer--2-body--text">fafoworatobi25@gmail.com</p>
+          <p class="footer--2-body--text">University of Lagos</p>
+        </div>
+      </div>
+      <div class="footer--3">
+        <div class="footer--3-header">
+          <p class="footer--3-header--text">Services</p>
+        </div>
+        <div class="footer--3-body">
+          <p class="footer--3-body--text">Contact us</p>
+          <p class="footer--3-body--text" style="text-transform: uppercase;">faq</p>
+          <p class="footer--3-body--text">lastest news</p>
+          <p class="footer--3-body--text">features</p>
+        </div>
+      </div>
+      <div class="footer--4">
+        <div class="footer--4-header">
+          <p class="footer--4-header--text">information</p>
+        </div>
+        <div class="footer--4-body">
+          <p class="footer--4-body--text">about us</p>
+          <p class="footer--4-body--text">work with us</p>
+          <p class="footer--4-body--text">privacy policy</p>
+          <p class="footer--4-body--text">terms & conditions</p>
+        </div>
+      </div>
+      <div class="footer--5">
+        <div class="footer--5-icon">
+          <fa-icon [icon]="facebook" size="2x"></fa-icon>
+        </div>
+        <div class="footer--5-icon">
+          <fa-icon [icon]="twitter" size="2x"></fa-icon>
+        </div>
+        <div class="footer--5-icon">
+          <fa-icon [icon]="instagram" size="2x"></fa-icon>
+        </div>
+        <div class="footer--5-icon">
+          <fa-icon [icon]="linkedin" size="2x"></fa-icon>
+        </div>
+      </div>
+    </footer>
+</div>

@@ -1,0 +1,157 @@
+.footer{
+  grid-column: 1/13;
+  grid-row: footer-start/footer-end;
+  background-color: #515151;
+  color: white;
+  padding: 3rem;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  justify-items: center;
+  align-items: center;
+
+  &--1{
+    width: 37rem;
+    padding: 10px;
+
+    &--header{
+      display: flex;
+      align-items: center;
+      margin-bottom: 0.8rem;
+      &-text{
+        width: 10rem;
+        font-family: $font-Subheader;
+        font-size: 1.4rem;
+      }
+      &-icon{
+        width: 1.5rem;
+        height: 3rem;
+      }
+    }
+    &--body{
+      width: 28rem;
+      font-family: $font-primary;
+      font-size: 1.2rem;
+      text-align: justify;
+    }
+  }
+
+  &--2{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 10px;
+
+    &-header{
+      &--text{
+        font-family: $font-medium;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+      }
+    }
+    &-body{
+      &--text{
+        &,&:visited,
+        &:active{
+          font-family: $font-primary;
+          font-size: 1.2rem;
+          text-transform: capitalize;
+          margin-bottom: 5px;
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        &:hover{
+          color: grey;
+          font-size: 1.15rem;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all .2s;
+        }
+      }
+    }
+  }
+
+  &--3{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    width: 95%;
+    padding: 10px;
+
+    &-header{
+      &--text{
+        font-family: $font-medium;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+      }
+    }
+    &-body{
+      &--text{
+        &,&:visited,
+        &:active{
+          font-family: $font-primary;
+          font-size: 1.2rem;
+          text-transform: capitalize;
+          margin-bottom: 5px;
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        &:hover{
+          color: grey;
+          font-size: 1.15rem;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all .2s;
+        }
+      }
+    }
+  }
+
+  &--4{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    padding: 10px;
+
+    &-header{
+      &--text{
+        font-family: $font-medium;
+        font-size: 1.2rem;
+        text-transform: uppercase;
+      }
+    }
+    &-body{
+      &--text{
+        &,&:visited,
+        &:active{
+          font-family: $font-primary;
+          font-size: 1.2rem;
+          text-transform: capitalize;
+          margin-bottom: 5px;
+          border: none;
+          cursor: pointer;
+          text-decoration: none;
+        }
+        &:hover{
+          color: grey;
+          font-size: 1.15rem;
+          font-weight: 600;
+          text-decoration: none;
+          transition: all .2s;
+        }
+      }
+    }
+  }
+
+  &--5{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 10rem;
+
+    &-icon{
+      &:hover{
+        color: grey;
+        transition: all .2s;
+      }
+    }
+  }
+}
