@@ -1,1 +1,30 @@
-<p>nav bar</p>
+<div class="nav-container">
+  <div class="nav-header">
+    <img class="nav-header--icon" src="../../../assets//Images//Logo-icon.png" />
+    <p class="nav-header--text">e-Seating Arrangement</p>
+  </div>
+  <div class="nav-holder">
+    <a class="nav--items" [routerLink]="['/admin/time-table']">
+      <img class="nav--items-icon" src="../../../assets//Images//timetable.png" />
+      <p class="nav--items-text">time-table</p>
+    </a>
+    <a class="nav--items" [routerLink]="['/admin/coordinator']">
+      <img class="nav--items-icon" src="../../../assets//Images//lecturer.png" />
+      <p class="nav--items-text">coordinator</p>
+    </a>
+    <a class="nav--items" [routerLink]="['/admin/hall']">
+      <img class="nav--items-icon" src="../../../assets//Images//hall.png" />
+      <p class="nav--items-text">hall</p>
+    </a>
+    <a class="nav--items" [routerLink]="['/admin/user-access']">
+      <img class="nav--items-icon" src="../../../assets//Images//user-profile.png" />
+      <p class="nav--items-text">users</p>
+    </a>
+  </div>
+  <div class="nav--bottom">
+    <a class="nav--bottom-item" (click)="logout()">
+      <img class="nav--bottom-item--icon" src="../../../assets//Images//logout.png" />
+      <p class="nav--bottom-item--text">Sign out</p>
+    </a>
+  </div>
+</div>

@@ -1,0 +1,151 @@
+@import '../others/main';
+
+.toolbar{
+  &-container{
+    float: right;
+    margin-right: 10rem;
+    margin-top: 15px;
+  }
+
+  &-holder{
+    &,
+    &:active,
+    &:visited{
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    &--icon{
+      width: 3rem;
+      height: 3rem;
+      margin-right: 8px;
+    }
+
+    &--text{
+      font-family: $font-primary;
+      font-size: 1.4rem;
+      color: black;
+      text-transform: capitalize;
+    }
+  }
+}
+
+.primary{
+  &-button{
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-family: $font-primary;
+    font-size: 1.2rem;
+    background: #334753;
+
+    &:hover{
+      color: black;
+      background: white;
+      border: solid 1px black;
+    }
+  }
+  &-danger{
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-family: $font-primary;
+    font-size: 1.2rem;
+    background: #C82333;
+
+    &:hover{
+      color: #C82333;
+      background: white;
+      border: solid 1px #C82333;
+    }
+  }
+  &-success{
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-family: $font-primary;
+    font-size: 1.2rem;
+    background: #218838;
+
+    &:hover{
+      color: #218838;
+      background: white;
+      border: solid 1px #218838;
+    }
+  }
+}
+
+.secondary{
+  &-button{
+    padding: 5px;
+    text-align: center;
+    color: white;
+    font-family: $font-primary;
+    font-size: 1.2rem;
+    background-color: #0069D9;
+
+    &:hover{
+      color: black;
+      background: white;
+      border: solid 1px #0069D9;
+    }
+  }
+}
+
+.header{
+  font-family: $font-primary;
+  text-transform: capitalize;
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+
+  &-big{
+    font-family: $font-Subheader;
+    text-transform: capitalize;
+    font-size: 2rem;
+    margin-bottom: 15px;
+  }
+
+  &-small{
+    font-family: $font-primary;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    margin-bottom: 15px;
+
+  }
+}
+
+.table-text{
+  font-family: $font-primary;
+  text-transform: capitalize;
+  font-size: 1.2rem;
+}
+
+.form-holder{
+  display: inline-grid;
+  margin-bottom: 20px;
+  & label{
+    display: inline-block;
+    width: 170px;
+    text-align: left;
+    font-family: $font-primary;
+    color: #707070;
+    font-size: 16px;
+  }
+  & input{
+    width: 100%;
+    height: 34px;
+    padding: 5px;
+    background: #EDEEF3;
+    border-style: none;
+    border-radius: 5px;
+  }
+  & select{
+    width: 100%;
+    height: 34px;
+    background: #EDEEF3;
+    border-style: none;
+    border-radius: 5px;
+  }
+}

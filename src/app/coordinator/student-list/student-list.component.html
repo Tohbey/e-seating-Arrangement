@@ -1,0 +1,43 @@
+<div style="margin-left: 4rem;">
+  <h4 class="header-big">Students List For {{hallDetails?.hallName}}</h4>
+  <div class="contain">
+    <div style="padding-bottom: 5px;width: 95%;margin-left: 15px;">
+      <div>
+        <p>Coordinators Signature</p>
+        <div style="float: left;">
+          <p class="header-small">{{hallDetails?.hallMainCoordinator}}</p>
+          <p class="header-small">Main Coordinator</p>
+          <p class="header-small">_____________________________________</p>
+          <p class="header-small">Signature/date</p>
+        </div>
+        <div style="float: right;">
+          <p class="header-small">{{hallDetails?.hallAssistanceCoordinator}}</p>
+          <p class="header-small">Assistance Coordinator</p>
+          <p class="header-small">_____________________________________</p>
+          <p class="header-small">Signature/date</p>
+        </div>
+      </div>
+      <table class="table" style="padding-top: 20px;">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">Name</th>
+              <th scope="col">Programme</th>
+              <th scope="col">MatricNumber</th>
+              <th scope="col">Seat id</th>
+              <th scope="col">Signature</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let student of students;let i= index">
+                <td class="table-text">{{student?.surname}} {{student?.otherName}}</td>
+                <td class="table-text">{{student?.programme}}</td>
+                <td class="table-text">{{student?.matricNumber}}</td>
+                <td class="table-text">{{student?.examSeat}}</td>
+                <td class="table-text"></td>
+            </tr>
+          </tbody>
+      </table>
+      <p class="header-small" style="margin-top: 20px;">Seats: Total Number of Seat avaialble {{hallDetails?.allocatedSize}}</p>
+    </div>
+  </div>
+</div>

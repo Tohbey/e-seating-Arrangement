@@ -1,0 +1,13 @@
+@import '../../sass/others/component';
+@import '../../sass/others/main';
+@import '../../sass/others/navigation';
+
+.nav-holder{
+  margin-top: 6rem;
+  margin-left: 4rem;
+  width: 20rem;
+  height: 10rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}

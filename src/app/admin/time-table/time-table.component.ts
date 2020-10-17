@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { Day } from 'src/app/models/day';
 import { CourseService } from 'src/app/Services/timetabeService/course.service';
 import { TimetableService } from 'src/app/Services/timetabeService/timetable.service';
+import { DayService } from 'src/app/Services/dayService/day.service';
 
 @Component({
   selector: 'app-time-table',
@@ -15,14 +17,26 @@ export class TimeTableComponent implements OnInit {
   examWeeks:any;
   date:any;
   show:boolean = false;
+  day:Day
   constructor(
     private timetableService:TimetableService,
-    private courseService:CourseService
+    private courseService:CourseService,
+    private DayService:DayService
   ) {}
 
   ngOnInit(){
     this.AllTimetable();
     this.getExamWeeks();
+    this.getCurrentDay();
+  }
+
+  getCurrentDay(){
+    let resp = this.DayService.getCurrentDay();
+    resp.subscribe((data) => {
+      this.day = data
+      console.log(this.day)
+    })
+    return this.day;
   }
 
   AllTimetable(){

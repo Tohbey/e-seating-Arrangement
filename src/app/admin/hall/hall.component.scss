@@ -1,0 +1,37 @@
+@import '../../sass/others/main';
+@import '../../sass/others/component';
+
+.contain{
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+
+  &-row{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    grid-column-gap: 2rem;
+  }
+
+  &-row-1{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    align-items: center;
+    grid-column-gap: 2rem;
+  }
+}
+
+.col{
+  &--header{
+    font-family: $font-medium;
+    text-transform: capitalize;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+  &--body{
+    font-family: $font-primary;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+  }
+}
+

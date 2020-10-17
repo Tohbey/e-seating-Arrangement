@@ -1,0 +1,40 @@
+@import '../../sass/others/component';
+@import '../../sass/others/main';
+
+.contain{
+  padding: 15px;
+  background-color: white;
+  border-radius: 10px;
+  margin-bottom: 40px;
+}
+
+.row{
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  grid-column-gap: 10px;
+  align-items: center;
+  justify-items: center;
+}
+
+.col{
+  &--header{
+    font-family: $font-medium;
+    text-transform: capitalize;
+    font-size: 1.4rem;
+    font-weight: 500;
+  }
+  &--body{
+    font-family: $font-primary;
+    font-size: 1.3rem;
+    text-transform: capitalize;
+  }
+}
+
+.btn{
+  &-1{
+    &,&:hover,&:active{
+      padding: 10px;
+      border: 0;
+    }
+  }
+}

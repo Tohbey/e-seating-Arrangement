@@ -1,0 +1,21 @@
+<div>
+  <h4 class="header-big">Courses Offered</h4>
+    <div style="padding-bottom: 5px;">
+      <table class="table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Course Code</th>
+            <th scope="col">Course Title</th>
+            <th scope="col">Course Unit</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let course of studentCourses;let i= index">
+              <td class="table-text">{{course?.courseCode}}</td>
+              <td class="table-text">{{course?.courseTitle}}</td>
+              <td class="table-text">{{course?.courseUnit}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+</div>

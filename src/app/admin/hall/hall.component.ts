@@ -132,6 +132,10 @@ export class HallComponent implements OnInit {
 
   onDIsplay(){
     document.getElementById('generate').style.display = 'block'
+    document.getElementById('newHall').style.display = 'none';
+    document.getElementById('updateHall').style.display ='none';
+    document.getElementById('view').style.display ='none';
+
   }
 
   AllHall(){
@@ -159,6 +163,8 @@ export class HallComponent implements OnInit {
   addHall(){
     document.getElementById('newHall').style.display = 'block';
     document.getElementById('updateHall').style.display ='none';
+    document.getElementById('view').style.display ='none';
+    document.getElementById('generate').style.display = 'none';
   }
 
   onDelete(id:String){
@@ -183,6 +189,8 @@ export class HallComponent implements OnInit {
       console.log(id,hall)
       document.getElementById('updateHall').style.display = 'block';
       document.getElementById('newHall').style.display = 'none';
+      document.getElementById('view').style.display ='none';
+      document.getElementById('generate').style.display = 'none';
       this.hallUpdate.patchValue(hall);
       this.hallUpdate.patchValue({
         coordinatorName:hall.hallMainCoordinator,
@@ -195,6 +203,9 @@ export class HallComponent implements OnInit {
   onView(id){
     console.log(id)
     document.getElementById('view').style.display = 'block';
+    document.getElementById('newHall').style.display = 'none';
+    document.getElementById('updateHall').style.display ='none';
+    document.getElementById('generate').style.display = 'none';
     let resp = this.hallService.getHallById(id);
     resp.subscribe((data) => {
       this.hallView = data

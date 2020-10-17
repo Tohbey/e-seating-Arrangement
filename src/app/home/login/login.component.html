@@ -1,4 +1,72 @@
-<p>login works!</p>
-<a [routerLink]="['/student']">login as student</a>
-<a [routerLink]="['/login/lecturer']">login as lecturer</a>
-<router-outlet></router-outlet>
+<div class="login">
+  <div class="login--left">
+    <div class="login--left-container">
+      <p class="login--header">Welcome to e-seating arrangment</p>
+      <p class="login--subheader">Join us today and let us help you with your examination malpractice issues.</p>
+      <div class="login--left-container--small">
+      <a class="login--button" (click)="asLecturer()">sign in as lecture</a>
+      <a class="login--button" (click)="asStudent()">sign in as student</a>
+      </div>
+    </div>
+  </div>
+  <div class="login--right">
+    <div class="login--right-container">
+      <img class="login--right-image" src="../../../assets/Images//student.png" />
+      <div class="login--right-input-box">
+        <div id="lecturer">
+          <p class="login--right-header">Login as Lecturer</p>
+          <form autocomplete="off" [formGroup]="lecturer">
+            <div>
+              <div class="form-group">
+                <label class="control-label form-label">E-mail</label>
+                <input type="text" placeholder="error@example.com" class="form-control form-custom" name="email" formControlName="email" [ngClass]="{'is-invalid': submitted && f.email.errors}"/>
+                <div *ngIf="f.email.errors" class="invalid-feedback">
+                  <div *ngIf="f.email.errors.required">email is required</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="form-group">
+                <label class="control-label form-label">Password</label>
+                <input type="password" placeholder="*******" class="form-control form-custom" name="password" formControlName="password" [ngClass]="{'is-invalid': submitted && f.password.errors}"/>
+                <div *ngIf="f.password.errors" class="invalid-feedback">
+                  <div *ngIf="f.password.errors.required">password is required</div>
+                </div>
+              </div>
+            </div>
+            <p>Forgot Password?</p>
+            <button class="btn" value="submit" type="submit" (click)="lecturerLogin()">Login</button>
+          </form>
+        </div>
+      </div>
+      <div class="login--right-input-box">
+        <div id="student" style="display: none;">
+          <p class="login--right-header">Login as student</p>
+          <form autocomplete="off" [formGroup]="student">
+            <div>
+              <div class="form-group">
+                <label class="control-label form-label">matriculation number</label>
+                <input type="text" placeholder="123046732" class="form-control form-custom" name="matricNumber" formControlName="matricNumber" [ngClass]="{'is-invalid': submitted && g.matricNumber.errors}"/>
+                <div *ngIf="g.matricNumber.errors" class="invalid-feedback">
+                  <div *ngIf="g.matricNumber.errors.required">Matric Number is required</div>
+                </div>
+              </div>
+            </div>
+            <div>
+              <div class="form-group">
+                <label class="control-label form-label">Password</label>
+                <input type="password" placeholder="*******" class="form-control form-custom" name="password" formControlName="password" [ngClass]="{'is-invalid': submitted && g.password.errors}"/>
+                <div *ngIf="g.password.errors" class="invalid-feedback">
+                  <div *ngIf="g.password.errors.required">password is required</div>
+                </div>
+              </div>
+            </div>
+            <p>Forgot Password?</p>
+            <button class="btn" value="submit" type="submit" (click)="studentLogin()">Login</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <p class="login--right-copyright">Copyright <span>&copy;</span> 2020 e-seating arrangement</p>
+  </div>
+</div>

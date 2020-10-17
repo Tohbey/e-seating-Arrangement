@@ -1,0 +1,27 @@
+@import '../../sass/others/component';
+
+.chair{
+  background-image: url('../../../assets/images/Layer-3.png');
+  width: 100px;
+  height: 100px;
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
+
+.row{
+  margin-left: 3rem;
+  width: 100rem;
+  display: grid;
+  grid-template-columns: repeat(2,1fr);
+  grid-column-gap: 10rem;
+  grid-row-gap: 5rem;
+
+  &-items{
+    padding: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+  }
+}

@@ -1,0 +1,98 @@
+<div style="margin-left: 5rem;">
+  <h4 class="header-big">Work-Post</h4>
+  <div>
+    <h5 class="header-small">Hall Details</h5>
+    <div class="contain">
+      <div class="row" style="margin-left: 20px;">
+        <div class="col">
+          <p class="col--header">Hall Name</p>
+          <p class="col--body">{{hallDetails?.hallName}}</p>
+        </div>
+        <div class="col">
+          <p class="col--header">Hall Size</p>
+          <p class="col--body">{{hallDetails?.hallSize}}</p>
+        </div>
+        <div class="col">
+          <p class="col--header">Department</p>
+          <p class="col--body">{{hallDetails?.department}}</p>
+        </div>
+        <div class="col">
+          <p class="col--header">Sections</p>
+          <p class="col--body">{{hallDetails?.rowSection}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div>
+    <div>
+      <div class="contain">
+        <div class="row" style="margin-left: 20px;">
+          <div class="col">
+            <p class="col--header">Main-Coordinator</p>
+            <p class="col--body">{{hallDetails?.hallMainCoordinator}}</p>
+          </div>
+          <div class="col">
+            <p class="col--header">Assitance-Coordinator</p>
+            <p class="col--body">{{hallDetails?.hallAssistanceCoordinator}}</p>
+          </div>
+          <div class="col">
+            <p class="col--header">Hall Row</p>
+            <p class="col--body">{{hallDetails?.hallRow}}</p>
+          </div>
+          <div class="col">
+            <p class="col--header">Hall Column</p>
+            <p class="col--body">{{hallDetails?.hallColumn}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="col--body">Seats: Total Number of Seat avaialble {{hallDetails?.allocatedSize}}</p>
+    <div style="margin-top: 20px;">
+      <h6 class="header-small">Examination Sessions</h6>
+      <ng-container *ngFor="let session of hallDetails?.hallSessions;let i of index">
+        <div class="accordion" id="accordionExample">
+          <div class="card">
+            <div class="card-header" id="headingOne">
+              <h2 class="mb-0" (click)="showContent(session?.sessionType)">
+                <a class="btn btn-1 header-small" type="button"
+                  data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                    aria-controls="collapseOne">
+                  {{session?.sessionType}}
+                </a>
+              </h2>
+            </div>
+
+            <div id="{{session?.sessionType}}" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <div class="card-body">
+                <table class="table">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th class="table-text" scope="col">Seat-id</th>
+                      <th class="table-text" scope="col">Programme</th>
+                      <th class="table-text" scope="col">Occupied</th>
+                      <th class="table-text" scope="col">Student MatricNumber</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let seat of session?.seats | paginate:paginationConfig;let i= index">
+                        <td class="table-text">{{seat?.seatId}}</td>
+                        <td class="table-text">{{seat?.programme}}</td>
+                        <td class="table-text">{{seat?.occupied}}</td>
+                        <td class="table-text">{{seat?.matricNumber}}</td>
+                    </tr>
+                  </tbody>
+              </table>
+              <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+                <div style="float: right;margin-bottom: 20px;margin-right: 20px;">
+                  <button class="btn primary-button" (click)="openPage('coordinator/attentance',session?.sessionType)" style="margin-right:15px">Print Attendance</button>
+                  <button class="btn primary-button" (click)="openPage('coordinator/student-list',session?.sessionType)" style="margin-right:15px">Students Details</button>
+                  <button class="btn primary-button" (click)="openPage('coordinator/graphical-view',session?.sessionType)">Graphical View</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>

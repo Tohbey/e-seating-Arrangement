@@ -1,0 +1,26 @@
+<div class="nav-container">
+  <div class="nav-header">
+    <img class="nav-header--icon" src="../../../assets//Images//Logo-icon.png" />
+    <p class="nav-header--text">e-Seating Arrangement</p>
+  </div>
+  <div class="nav-holder">
+    <a class="nav--items" [routerLink]="['/student/time-table']">
+      <img class="nav--items-icon" src="../../../assets//Images//timetable.png" />
+      <p class="nav--items-text">Time-Table</p>
+    </a>
+    <a class="nav--items" [routerLink]="['/student/courses']">
+      <img class="nav--items-icon" src="../../../assets//Images//lecturer.png" />
+      <p class="nav--items-text">Courses</p>
+    </a>
+    <a class="nav--items" [routerLink]="['/student/seat']">
+      <img class="nav--items-icon" src="../../../assets//Images//lecturer.png" />
+      <p class="nav--items-text">Seat</p>
+    </a>
+  </div>
+  <div class="nav--bottom">
+    <a class="nav--bottom-item" (click)="logout()">
+      <img class="nav--bottom-item--icon" src="../../../assets//Images//logout.png" />
+      <p class="nav--bottom-item--text">Sign out</p>
+    </a>
+  </div>
+</div>

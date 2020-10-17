@@ -1,0 +1,152 @@
+@import '../../sass/home/main';
+$main-color: #707BB0;
+$white: #ffffff;
+
+.login{
+  display: grid;
+  width:100%;
+  overflow: hidden;
+  grid-template-columns: 1fr 50rem;
+  height: 100vh;
+
+  &--header{
+    font-family: $font-medium;
+    font-size: 4rem;
+    font-weight: 600;
+    color: $white;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+  }
+
+  &--subheader{
+    font-family: $font-medium;
+    font-size: 2rem;
+    color: rgba($white, 0.68);
+    margin-bottom: 5rem;
+  }
+
+  &--button{
+    &,
+    &:visited,
+    &:active{
+      padding: 10px;
+      border: 3px $white solid;
+      border-radius: 10px;
+      color: $white;
+      text-transform: capitalize;
+      font-size: 1.8rem;
+      cursor: pointer;
+      text-decoration: none;
+    }
+    &:hover{
+      padding: 10px;
+      border-radius: 10px;
+      color: black;
+      background-color: white;
+      font-size: 1.8rem;
+      transition: all .3s;
+    }
+  }
+
+  &--left{
+    background-image: linear-gradient(
+      to right bottom,
+      rgba($main-color, 0.6),
+      rgba($main-color, 0.6)),
+    url(../../../assets/Images/login.png);
+    background-size: contain;
+    background-position: top;
+    padding: 2rem;
+    position: relative;
+
+    &-container{
+      position: absolute;
+      margin-left: 1rem;
+      bottom: 10rem;
+      height: 25rem;
+      display: flex;
+      flex-direction: column;
+
+      &--small{
+        width: 40rem;
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+  }
+
+  &--right{
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+    background-color: $white;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+    &-copyright{
+      position: absolute;
+      bottom: 10px;
+      font-family: $font-primary;
+      font-size: 1.2rem;
+      text-transform: capitalize;
+    }
+
+    &-image{
+      margin-left: 7rem;
+      height: 21rem;
+    }
+
+    &-header{
+      font-family: $font-primary;
+      font-size: 2rem;
+      text-transform: capitalize;
+      color: black;
+      text-align: center;
+      margin-bottom: 10px;
+    }
+    &-container{
+      width: 40rem;
+      height: 60rem;
+    }
+    &-input-box{
+      display: grid;
+      justify-content: center;
+    }
+  }
+}
+
+.form{
+  &-custom{
+    margin: 5px 0;
+    width: 29rem;
+    padding: 8px;
+    height: 4rem;
+    border-radius: 5px;
+    border: 1px black solid;
+    &::placeholder{
+      font-family: $font-primary;
+    }
+  }
+  &-label{
+    font-family: $font-primary;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+    color: black;
+  }
+}
+
+.btn{
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2rem;
+  width: 29rem;
+  color: white;
+  font-size: 1.5rem;
+  font-family: $font-primary;
+  text-transform: uppercase;
+  background-color: black;
+  text-align: center;
+  padding: 10px;
+  border-radius: 8px;
+}

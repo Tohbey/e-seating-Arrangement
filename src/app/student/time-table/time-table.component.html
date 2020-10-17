@@ -1,0 +1,26 @@
+<div>
+  <div style="float: right;">
+    <p class="table-text">{{day.day}}</p>
+  </div>
+  <h4 class="header-big">Exam Time-Table</h4>
+  <div style="padding-bottom: 5px;">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">Exam time</th>
+          <th scope="col">Exam Day</th>
+          <th scope="col">Course Code</th>
+          <th scope="col">Week</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let exams of studentExamCourse;let i= index">
+            <td class="table-text">{{exams?.examTime}}</td>
+            <td class="table-text">{{exams?.examDay}}</td>
+            <td class="table-text">{{exams?.courseCode}}</td>
+            <td class="table-text">{{exams?.weekNumber}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

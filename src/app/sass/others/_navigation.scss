@@ -1,0 +1,98 @@
+@import '../home/main';
+
+.nav{
+  &-container{
+    width: 26rem;
+    height: 69rem;
+    margin-top: 5rem;
+    padding: 5px;
+    position: relative;
+  }
+
+  &-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+
+    &--icon{
+      width: 2rem;
+      height: 4rem;
+    }
+
+    &--text{
+      font-family: $font-medium;
+      color: white;
+      font-size: 1.5rem;
+      padding-left: 2px;
+      width: 9rem;
+    }
+  }
+
+  &-holder{
+    margin-top: 6rem;
+    margin-left: 4rem;
+    width: 20rem;
+    height: 23rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  &--items{
+    &,
+    &:active,
+    &:visited{
+      display: flex;
+      align-items: center;
+      text-decoration: none;
+      cursor: pointer;
+    }
+    &-icon{
+      width: 3rem;
+      height: 3rem;
+      margin-right: 8px;
+    }
+
+    &-text{
+      font-family: $font-primary;
+      font-size: 1.4rem;
+      color: black;
+      text-transform: capitalize;
+
+      &:hover{
+        color: white;
+      }
+    }
+  }
+
+  &--bottom{
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+    &-item{
+      &,
+      &:visited,
+      &:active{
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        justify-content: center;
+        cursor: pointer;
+      }
+
+      &--icon{
+        width: 3rem;
+        height: 3rem;
+        margin-right: 8px;
+      }
+
+      &--text{
+        font-family: $font-primary;
+        font-size: 1.4rem;
+        color: black;
+        text-transform: capitalize;
+      }
+    }
+  }
+}
+

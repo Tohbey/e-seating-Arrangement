@@ -1,1 +1,167 @@
-<p>coordinator works!</p>
+<div style="margin-left: 5rem;">
+  <div style="padding-bottom: 5px;">
+      <button class="btn primary-button" (click)="addCoordinator()">Add Lecture</button>
+  </div>
+  <div style="padding-bottom: 5px;">
+      <table class="table">
+          <thead class="thead-dark">
+            <tr>
+              <th scope="col">id</th>
+              <th scope="col">Full Name</th>
+              <th scope="col">E-mail</th>
+              <th scope="col">Department</th>
+              <th scope="col">Phone No.</th>
+              <th scope="col">Work Post</th>
+              <th scope="col">Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let coordinator of coordinators | paginate:paginationConfig;let i= index">
+                <td class="table-text">{{coordinator?.coordinatorId}}</td>
+                <td class="table-text">{{coordinator?.coordinatorFullName}}</td>
+                <td class="table-text">{{coordinator?.coordinatorEmail}}</td>
+                <td class="table-text">{{coordinator?.coordinatorDepartment}}</td>
+                <td class="table-text">{{coordinator?.coordinatorPhoneNumber}}</td>
+                <td class="table-text">{{coordinator?.hallName}}</td>
+                  <td>
+                      <button (click)="onDelete(coordinator?.id)"  style="margin-right: 5px;" class="btn primary-danger">delete</button>
+                      <button (click)="onEdit(coordinator?.id,coordinator)" class="btn primary-button">edit</button>
+                  </td>
+            </tr>
+          </tbody>
+      </table>
+      <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+  <div id="newCoordinator" style="display: none;">
+      <h5 class="header">Add new Coordinators</h5>
+      <form [formGroup]="coordinatorsForm" (ngSubmit)="onSubmit()">
+          <div class="row">
+              <div class="col form-holder">
+                  <label for="coordinatorId">id</label>
+                  <input formControlName="coordinatorId" class="form-control" type="text" name="coordinatorId" id="coordinatorId" [ngClass]="{'is-invalid': submitted && f.coordinatorId.errors}"/>
+                  <div *ngIf="f.coordinatorId.errors" class="invalid-feedback">
+                      <div *ngIf="f.coordinatorId.errors.required">coordinatorId is required</div>
+                  </div>
+              </div>
+              <div class="col order-1 form-holder">
+                  <label for="coordinatorSurname">Surname</label>
+                  <input formControlName="coordinatorSurname" class="form-control" type="text" name="coordinatorSurname" id="coordinatorSurname" [ngClass]="{'is-invalid': submitted && f.coordinatorSurname.errors}"/>
+                  <div *ngIf="f.coordinatorSurname.errors" class="invalid-feedback">
+                      <div *ngIf="f.coordinatorSurname.errors.required">coordinatorSurname is required</div>
+                  </div>
+              </div>
+              <div class="col order-12 form-holder">
+                  <label for="coordinatorOtherName">Other Names</label>
+                  <input formControlName="coordinatorOtherName" class="form-control" type="text" name="coordinatorOtherName" id="coordinatorOtherName" [ngClass]="{'is-invalid': submitted && f.coordinatorOtherName.errors}"/>
+                  <div *ngIf="f.coordinatorOtherName.errors" class="invalid-feedback">
+                      <div *ngIf="f.coordinatorOtherName.errors.required">coordinatorSurname is required</div>
+                  </div>
+              </div>
+              <div class="col order-12 form-holder">
+                <label for="coordinatorPhoneNumber">Phone Number</label>
+                <input formControlName="coordinatorPhoneNumber" type="text" class="form-control" name="coordinatorPhoneNumber" id="coordinatorPhoneNumber" [ngClass]="{'is-invalid': submitted && f.coordinatorPhoneNumber.errors}"/>
+                <div *ngIf="f.coordinatorPhoneNumber.errors" class="invalid-feedback">
+                    <div *ngIf="f.coordinatorPhoneNumber.errors.required">coordinatorPhoneNumber is required</div>
+                </div>
+              </div>
+          </div>
+          <div class="row">
+              <div class="col form-holder">
+                  <label for="coordinatorEmail">E-mail</label>
+                  <input formControlName="coordinatorEmail" type="email" class="form-control" name="coordinatorEmail" id="coordinatorEmail" [ngClass]="{'is-invalid': submitted && f.coordinatorEmail.errors}"/>
+                  <div *ngIf="f.coordinatorEmail.errors" class="invalid-feedback">
+                      <div *ngIf="f.coordinatorEmail.errors.required">coordinatorSurname is required</div>
+                  </div>
+              </div>
+              <div class="col order-1 form-holder">
+                <label for="faculty">Faculty</label>
+                <input formControlName="faculty" type="text" class="form-control" name="faculty" id="faculty" [ngClass]="{'is-invalid': submitted && f.faculty.errors}"/>
+                <div *ngIf="f.faculty.errors" class="invalid-feedback">
+                    <div *ngIf="f.faculty.errors.required">faculty is required</div>
+                </div>
+              </div>
+              <div class="col order-2 form-holder">
+                  <label for="coordinatorDepartment">Department</label>
+                  <input formControlName="coordinatorDepartment" type="text" class="form-control" name="coordinatorDepartment" id="coordinatorDepartment" [ngClass]="{'is-invalid': submitted && f.coordinatorDepartment.errors}"/>
+                  <div *ngIf="f.coordinatorDepartment.errors" class="invalid-feedback">
+                      <div *ngIf="f.coordinatorDepartment.errors.required">coordinatorSurname is required</div>
+                  </div>
+              </div>
+              <div class="col order-12 form-holder">
+                  <label for="hallName">Work-Post</label>
+                  <select formControlName="hallName" id="hallName" class="form-control" [ngClass]="{'is-invalid': submitted && f.hallName.errors}">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let k of hallNames" [ngValue]="k">{{k}}</option>
+                  </select>
+              </div>
+          </div>
+          <button style="float: right;" class="btn primary-button">Add</button>
+      </form>
+  </div>
+      <div id="updateCoordinator" style="display: none;">
+      <h5 class="header">Update Coordinators</h5>
+      <form [formGroup]="coordinatorUpdate" (ngSubmit)="onUpdate()">
+          <div class="row">
+              <div class="col form-holder">
+                  <label for="coordinatorId">id</label>
+                  <input formControlName="coordinatorId" type="text" class="form-control" name="coordinatorId" id="coordinatorId" [ngClass]="{'is-invalid': submitted && g.coordinatorId.errors}"/>
+                  <div *ngIf="g.coordinatorId.errors" class="invalid-feedback">
+                      <div *ngIf="g.coordinatorId.errors.required">coordinatorId is required</div>
+                  </div>
+              </div>
+              <div class="col order-1 form-holder">
+                  <label for="coordinatorSurname">Surname</label>
+                  <input formControlName="coordinatorSurname" type="text" class="form-control" name="coordinatorSurname" id="coordinatorSurname" [ngClass]="{'is-invalid': submitted && g.coordinatorSurname.errors}"/>
+                  <div *ngIf="g.coordinatorSurname.errors" class="invalid-feedback">
+                      <div *ngIf="g.coordinatorSurname.errors.required">coordinatorSurname is required</div>
+                  </div>
+              </div>
+              <div class="col order-12 form-holder">
+                  <label for="coordinatorOtherName">Other Names</label>
+                  <input formControlName="coordinatorOtherName" type="text" class="form-control" name="coordinatorOtherName" id="coordinatorOtherName" [ngClass]="{'is-invalid': submitted && g.coordinatorOtherName.errors}"/>
+                  <div *ngIf="g.coordinatorOtherName.errors" class="invalid-feedback">
+                      <div *ngIf="g.coordinatorOtherName.errors.required">coordinatorSurname is required</div>
+                  </div>
+              </div>
+              <div class="col order-12 form-holder">
+                <label for="coordinatorPhoneNumber">Phone Number</label>
+                <input formControlName="coordinatorPhoneNumber" type="text" class="form-control" name="coordinatorPhoneNumber" id="coordinatorPhoneNumber" [ngClass]="{'is-invalid': submitted && g.coordinatorPhoneNumber.errors}"/>
+                <div *ngIf="g.coordinatorPhoneNumber.errors" class="invalid-feedback">
+                    <div *ngIf="g.coordinatorPhoneNumber.errors.required">coordinatorPhoneNumber is required</div>
+                </div>
+            </div>
+          </div>
+          <div class="row">
+              <div class="col form-holder">
+                  <label for="coordinatorEmail">E-mail</label>
+                  <input formControlName="coordinatorEmail" type="text" class="form-control" name="coordinatorEmail" id="coordinatorEmail" [ngClass]="{'is-invalid': submitted && g.coordinatorEmail.errors}"/>
+                  <div *ngIf="g.coordinatorEmail.errors" class="invalid-feedback">
+                      <div *ngIf="g.coordinatorEmail.errors.required">coordinatorSurname is required</div>
+                  </div>
+              </div>
+              <div class="col order-12 form-holder">
+                <label for="faculty">Faculty</label>
+                <input formControlName="faculty" type="text" class="form-control" name="faculty" id="faculty" [ngClass]="{'is-invalid': submitted && g.faculty.errors}"/>
+                <div *ngIf="g.faculty.errors" class="invalid-feedback">
+                    <div *ngIf="g.faculty.errors.required">faculty is required</div>
+                </div>
+              </div>
+              <div class="col order-1 form-holder">
+                  <label for="coordinatorDepartment">Department</label>
+                  <input formControlName="coordinatorDepartment" type="text" class="form-control" name="coordinatorDepartment" id="coordinatorDepartment" [ngClass]="{'is-invalid': submitted && g.coordinatorDepartment.errors}"/>
+                  <div *ngIf="g.coordinatorDepartment.errors" class="invalid-feedback">
+                      <div *ngIf="g.coordinatorDepartment.errors.required">coordinatorSurname is required</div>
+                  </div>
+              </div>
+              <div class="col order-12 form-holder">
+                  <label for="hallName">Work-Post</label>
+                  <select formControlName="hallName" id="hallName" class="form-control" [ngClass]="{'is-invalid': submitted && g.hallName.errors}">
+                    <option selected>Choose...</option>
+                    <option *ngFor="let k of hallNames" [ngValue]="k">{{k}}</option>
+                  </select>
+              </div>
+          </div>
+          <button style="float: right;" class="btn primary-success">Update</button>
+        </form>
+  </div>
+</div>

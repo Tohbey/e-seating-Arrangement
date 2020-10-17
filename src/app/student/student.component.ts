@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { User } from '../models/user';
+import { BasicAuthenticationService } from '../Services/authenticationService/basic-authentication.service';
 
 @Component({
   selector: 'app-student',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./student.component.scss']
 })
 export class StudentComponent implements OnInit {
+  userDetails:User;
 
-  constructor() { }
+  constructor(
+    private BasicAuth:BasicAuthenticationService,
+  ) { }
 
   ngOnInit(): void {
+    let email = this.BasicAuth.getAuthenticatedUser();
+    console.log(email)
   }
-
 }

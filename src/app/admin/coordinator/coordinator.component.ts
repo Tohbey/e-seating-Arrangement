@@ -143,6 +143,7 @@ export class CoordinatorComponent implements OnInit {
     if(value){
       console.log(id,coordinator)
       document.getElementById('updateCoordinator').style.display = 'block'
+      document.getElementById('newCoordinator').style.display = 'none';
       this.coordinatorUpdate.patchValue({
         coordinatorWorkPost:coordinator.hallName
       })
@@ -153,6 +154,7 @@ export class CoordinatorComponent implements OnInit {
   }
 
   addCoordinator(){
+    document.getElementById('updateCoordinator').style.display = 'none'
     document.getElementById('newCoordinator').style.display = 'block';
   }
 

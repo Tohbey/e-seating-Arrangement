@@ -1,0 +1,19 @@
+<div style="margin-left: 10rem;">
+  <h4>Graphical View For {{hallDetails?.hallName}}</h4>
+  <div style="margin-top: 10px;">
+    <div class="row" style="padding:35px">
+      <ng-container *ngFor="let seat of seatsBySection?.seats | paginate:paginationConfig;">
+        <div class="row-items">
+          <div>
+            <p class="header-small">Seat Id: {{seat.seatId}}</p>
+            <p class="header-small">Student Id: {{seat.matricNumber}}</p>
+            <p>Signature: _____________________</p>
+          </div>
+          <div class="chair"></div>
+        </div>
+      </ng-container>
+    </div>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+</div>
+

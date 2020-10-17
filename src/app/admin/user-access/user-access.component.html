@@ -1,1 +1,117 @@
-<p>user-access works!</p>
+<div style="margin-left: 5rem;">
+  <div style="padding-bottom: 5px;">
+    <button class="btn primary-button" (click)="addUser()">Add Lecture</button>
+  </div>
+  <div style="padding-bottom: 5px;">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">id</th>
+          <th scope="col">Surname</th>
+          <th scope="col">Other Names</th>
+          <th scope="col">E-mail</th>
+          <th scope="col">Department</th>
+          <th scope="col">isActive</th>
+          <th scope="col">Phone No.</th>
+          <th scope="col">Role</th>
+          <th scope="col">Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of users | paginate:paginationConfig;let i= index">
+          <td class="table-text">{{user?.userId}}</td>
+          <td class="table-text">{{user?.userSurname}}</td>
+          <td class="table-text">{{user?.userOtherName}}</td>
+          <td class="table-text">{{user?.userEmail}}</td>
+          <td class="table-text">{{user?.department}}</td>
+          <td class="table-text">{{user?.userIsActive}}</td>
+          <td class="table-text">{{user?.userPhoneNumber}}</td>
+          <td class="table-text">{{user?.roles[0].role}}</td>
+          <td>
+            <button style="margin-right: 5px;" class="btn primary-danger" (click)="onDelete(user?.id)">delete</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+  </div>
+  <div id="fetch" style="display: none;">
+    <form [formGroup]="fetchForm" (ngSubmit)="onfetch()">
+      <h5 class="header">Select the Coordinator's Email to grant access</h5>
+      <div class="row-1">
+        <div class="col form-holder">
+            <label for="userEmail">User Email</label>
+            <select formControlName="userEmail" id="userEmail" class="form-control" [ngClass]="{'is-invalid': submitted && f.userEmail.errors}">
+              <option selected>Choose...</option>
+              <option *ngFor="let k of emails" [ngValue]="k">{{k}}</option>
+            </select>
+            <div *ngIf="f.userEmail.errors" class="invalid-feedback">
+                <div *ngIf="f.userEmail.errors.required">userEmail is required</div>
+            </div>
+        </div>
+        <div class="col">
+          <button class="btn primary-button">Fetch</button>
+        </div>
+      </div>
+    </form>
+  </div>
+  <div id="newUser" style="display: none;">
+    <form [formGroup] = "userForm" (ngSubmit)="grantAccess()">
+      <h5>Grant Access</h5>
+      <div class="row-2">
+        <div class="col form-holder">
+            <label for="userSurname">Surname</label>
+            <input formControlName="userSurname" class="form-control" type="text" name="userSurname" id="userSurname" [ngClass]="{'is-invalid': submitted && g.userSurname.errors}"/>
+            <div *ngIf="g.userSurname.errors" class="invalid-feedback">
+                <div *ngIf="g.userSurname.errors.required">userSurname is required</div>
+            </div>
+        </div>
+        <div class="col order-1 form-holder">
+            <label for="userOtherName">Other Names</label>
+            <input formControlName="userOtherName" class="form-control" type="text" name="userOtherName" id="userOtherName" [ngClass]="{'is-invalid': submitted && g.userOtherName.errors}"/>
+            <div *ngIf="g.userOtherName.errors" class="invalid-feedback">
+                <div *ngIf="g.userOtherName.errors.required">userOtherName is required</div>
+            </div>
+        </div>
+        <div class="col order-12 form-holder">
+            <label for="userEmail">Email</label>
+            <input formControlName="userEmail" class="form-control" type="text" name="userEmail" id="userEmail" [ngClass]="{'is-invalid': submitted && g.userEmail.errors}"/>
+            <div *ngIf="g.userEmail.errors" class="invalid-feedback">
+                <div *ngIf="g.userEmail.errors.required">userEmail is required</div>
+            </div>
+        </div>
+    </div>
+    <div class="row-2">
+        <div class="col form-holder">
+            <label for="department">Department</label>
+            <input formControlName="department" type="email" class="form-control" name="department" id="department" [ngClass]="{'is-invalid': submitted && g.department.errors}"/>
+            <div *ngIf="g.department.errors" class="invalid-feedback">
+                <div *ngIf="g.department.errors.required">department is required</div>
+            </div>
+        </div>
+        <div class="col order-1 form-holder">
+            <label for="userPhoneNumber">Phone Number</label>
+            <input formControlName="userPhoneNumber" type="text" class="form-control" name="userPhoneNumber" id="userPhoneNumber" [ngClass]="{'is-invalid': submitted && g.userPhoneNumber.errors}"/>
+            <div *ngIf="g.userPhoneNumber.errors" class="invalid-feedback">
+                <div *ngIf="g.userPhoneNumber.errors.required">coordinatorSurname is required</div>
+            </div>
+        </div>
+        <div class="col order-12 form-holder">
+            <div formArrayName="roles">
+              <div *ngFor="let role of t.controls;let i=index">
+                <div [formGroupName] = "i">
+                  <label for="role">Role</label>
+                  <select style="width: 100%;" formControlName="role" id="role" class="form-control">
+                    <option selected>Choose...</option>
+                    <option>Admin</option>
+                    <option>Coordinator</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+        </div>
+    </div>
+    <button style="float: right;" class="btn primary-button">Add</button>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+@import '../../sass/others/component';
+
+.row{
+  &-1{
+    display: grid;
+    grid-template-columns: 40rem 10rem;
+    align-items: center;
+    grid-column-gap: 2rem;
+  }
+  &-2{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    grid-column-gap: 2rem;
+  }
+}
+
+.text{
+  &--header{
+    font-family: $font-primary;
+    font-size: 1.3rem;
+  }
+}
