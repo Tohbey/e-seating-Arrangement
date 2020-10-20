@@ -4,6 +4,8 @@ $font-header: 'Poppins-Bold';
 $font-Subheader: 'Poppins-SemiBold';
 $font-medium: 'Poppins-Medium';
 
+@import '../variables';
+
 *,
 *::before,
 *::after {
@@ -52,7 +54,7 @@ body {
 .toolbar{
   grid-column: 1/13;
   grid-row: top-start/top-end;
-  background-color: white;
+  background-color: $color-white;
   box-shadow: 0px 1px 10px #00000029 ;
 }
 

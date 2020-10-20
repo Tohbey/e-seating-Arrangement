@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ProfileComponent } from '../admin/profile/profile.component';
+import { ProfileComponent } from './profile/profile.component';
 import { TimeTableComponent } from './time-table/time-table.component';
 import { AttendanceComponent } from './attendance/attendance.component';
 import { GraphicalViewComponent } from './graphical-view/graphical-view.component';

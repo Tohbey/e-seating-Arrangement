@@ -1,3 +1,5 @@
+@import '../variables';
+
 .contact{
   grid-column: 1/13;
   grid-row: contact-start/contact-end;
@@ -23,15 +25,15 @@
       font-size: 1.15rem;
       border: 0.1px double #DFDFDF;
       text-transform: uppercase;
-      background-color: white;
-      color: black;
+      background-color: $color-white;
+      color: $color-black;
       border-radius: 5px;
       cursor: pointer;
       text-decoration: none;
     }
     &:hover{
-      color: black;
-      border: 0.1px double black;
+      color: $color-black;
+      border: 0.1px double $color-black;
       font-weight: 500;
       text-decoration: none;
       transition: all .2s;

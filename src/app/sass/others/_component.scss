@@ -1,4 +1,5 @@
 @import '../others/main';
+@import '../variables';
 
 .toolbar{
   &-container{
@@ -15,6 +16,7 @@
       align-items: center;
       text-decoration: none;
       cursor: pointer;
+      border: none;
     }
 
     &--icon{
@@ -26,7 +28,7 @@
     &--text{
       font-family: $font-primary;
       font-size: 1.4rem;
-      color: black;
+      color: $color-black;
       text-transform: capitalize;
     }
   }
@@ -36,43 +38,43 @@
   &-button{
     padding: 5px;
     text-align: center;
-    color: white;
+    color: $color-white;
     font-family: $font-primary;
     font-size: 1.2rem;
-    background: #334753;
+    background: $color-button-primary;
 
     &:hover{
-      color: black;
-      background: white;
-      border: solid 1px black;
+      color: $color-black;
+      background: $color-white;
+      border: solid 1px $color-button-primary;
     }
   }
   &-danger{
     padding: 5px;
     text-align: center;
-    color: white;
+    color: $color-white;
     font-family: $font-primary;
     font-size: 1.2rem;
-    background: #C82333;
+    background: $color-button-danger;
 
     &:hover{
-      color: #C82333;
-      background: white;
-      border: solid 1px #C82333;
+      color: $color-button-danger;
+      background: $color-white;
+      border: solid 1px $color-button-danger;
     }
   }
   &-success{
     padding: 5px;
     text-align: center;
-    color: white;
+    color: $color-white;
     font-family: $font-primary;
     font-size: 1.2rem;
-    background: #218838;
+    background: $color-button-success;
 
     &:hover{
-      color: #218838;
-      background: white;
-      border: solid 1px #218838;
+      color: $color-button-success;
+      background: $color-white;
+      border: solid 1px $color-button-success;
     }
   }
 }
@@ -81,15 +83,15 @@
   &-button{
     padding: 5px;
     text-align: center;
-    color: white;
+    color: $color-white;
     font-family: $font-primary;
     font-size: 1.2rem;
-    background-color: #0069D9;
+    background-color: $color-button-secondary;
 
     &:hover{
-      color: black;
-      background: white;
-      border: solid 1px #0069D9;
+      color: $color-black;
+      background: $color-white;
+      border: solid 1px $color-button-secondary;
     }
   }
 }
@@ -130,21 +132,21 @@
     width: 170px;
     text-align: left;
     font-family: $font-primary;
-    color: #707070;
+    color: $color-form-label;
     font-size: 16px;
   }
   & input{
     width: 100%;
     height: 34px;
     padding: 5px;
-    background: #EDEEF3;
+    background: $color-form-input;
     border-style: none;
     border-radius: 5px;
   }
   & select{
     width: 100%;
     height: 34px;
-    background: #EDEEF3;
+    background: $color-form-input;
     border-style: none;
     border-radius: 5px;
   }

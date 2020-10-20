@@ -69,6 +69,15 @@ export class UsersService {
     )
   }
 
+    //Updating user
+  changePassword(id,user:User):Observable<User>{
+    return this.http.put<User>(this.userUrl+"/updatePassword/"+id,JSON.stringify(user),this.httpOptions)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
   //Error Handling
   handleError(error){
     let errorMessage="";

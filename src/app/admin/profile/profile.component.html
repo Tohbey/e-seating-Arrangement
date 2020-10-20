@@ -1,1 +1,126 @@
-<p>profile works!</p>
+<div style="margin-left: 6rem;">
+  <div style="float: right;">
+    <p class="table-text">{{day.day}}</p>
+  </div>
+  <h4 class="header">User Details</h4>
+  <div>
+    <a class="btn primary-button" style="margin-right: 10px;" (click)="changePassword()">Change Password</a>
+    <a class="btn primary-button" (click)="updateInfo()">Update Details</a>
+  </div>
+  <div class="row">
+    <div>
+      <p class="text-header">Full Name</p>
+      <p class="text-body">{{admin.userSurname}} {{admin.userOtherName}}</p>
+    </div>
+    <div>
+      <p class="text-header">E-mail</p>
+      <p class="text-body">{{admin.userEmail}}</p>
+    </div>
+    <div>
+      <p class="text-header">Phone no.</p>
+      <p class="text-body">{{admin.userPhoneNumber}}</p>
+    </div>
+    <div>
+      <p class="text-header">User-Id</p>
+      <p class="text-body">{{admin.userId}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <p class="text-header">Department</p>
+      <p class="text-body">{{admin.department}}</p>
+    </div>
+    <div>
+      <p class="text-header">Work-Post</p>
+      <p class="text-body">--</p>
+    </div>
+    <div>
+      <p class="text-header">is-Active</p>
+      <p class="text-body">{{admin.userIsActive}}</p>
+    </div>
+    <div>
+      <p class="text-header">Role</p>
+      <p class="text-body">{{admin.roles[0].role}}</p>
+    </div>
+  </div>
+  <div id="passwordForm" style="display: none;">
+    <div class="contain">
+      <h5 class="header">Change Password</h5>
+      <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+          <div class="contain-row">
+            <div class="col form-holder">
+                <label for="password">New Password</label>
+                <div class="input-container">
+                  <fa-icon class="icon" [icon]="fieldTextType ? visible: notVisible" size="1x" (click)="toggleFieldTextType()"></fa-icon>
+                  <input formControlName="password" [type]="fieldTextType ? 'text': 'password'" name="password" class="input-field" id="password" [ngClass]="{'is-invalid': submittedPassword && f.password.errors}"/>
+                  <div *ngIf="f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">password is required</div>
+                  </div>
+                </div>
+            </div>
+            <div class="col form-holder">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="input-container">
+                  <fa-icon class="icon" [icon]="fieldTextType ? visible: notVisible" size="1x" (click)="toggleFieldTextType()"></fa-icon>
+                  <input formControlName="confirmPassword" [type]="fieldTextType ? 'text': 'password'" name="confirmPassword" class="input-field" id="confirmPassword" [ngClass]="{'is-invalid': submittedPassword && f.confirmPassword.errors}"/>
+                  <div *ngIf="f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Password must match</div>
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                  </div>
+                </div>
+            </div>
+            <div>
+              <button class="btn secondary-button">Update Password</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+  <div id="adminform" style="display: none;">
+    <div class="contain" style="padding-bottom: 48px;">
+      <h5 class="header">Update Info.</h5>
+      <form [formGroup]="adminForm" (ngSubmit)="onUpdate()">
+          <div class="contain-row-1">
+            <div class="col form-holder">
+                <label for="userSurname">Surname</label>
+                <input formControlName="userSurname" type="text" name="userSurname" class="form-control" id="userSurname" [ngClass]="{'is-invalid': submittedAdmin && g.userSurname.errors}"/>
+                <div *ngIf="g.userSurname.errors" class="invalid-feedback">
+                    <div *ngIf="g.userSurname.errors.required">Surname is required</div>
+                </div>
+            </div>
+            <div class="col form-holder">
+                <label for="userOtherName">Other name</label>
+                <input formControlName="userOtherName" type="text" name="userOtherName" class="form-control" id="userOtherName" [ngClass]="{'is-invalid': submittedAdmin && g.userOtherName.errors}"/>
+                <div *ngIf="g.userOtherName.errors" class="invalid-feedback">
+                    <div *ngIf="g.userOtherName.errors.required">Other names are required</div>
+                </div>
+            </div>
+          </div>
+          <div class="contain-row">
+            <div class="col form-holder">
+                <label for="userEmail">E-mail</label>
+                <input formControlName="userEmail" type="email" name="userEmail" class="form-control" id="userEmail" [ngClass]="{'is-invalid': submittedAdmin && g.userEmail.errors}"/>
+                <div *ngIf="g.userEmail.errors" class="invalid-feedback">
+                    <div *ngIf="g.userEmail.errors.required">E-mail is required</div>
+                </div>
+            </div>
+            <div class="col form-holder">
+                <label for="userPhoneNumber">Phone no.</label>
+                <input formControlName="userPhoneNumber" type="text" name="confirmPassword" class="form-control" id="userPhoneNumber" [ngClass]="{'is-invalid': submittedAdmin && g.userPhoneNumber.errors}"/>
+                <div *ngIf="g.userPhoneNumber.errors" class="invalid-feedback">
+                    <div *ngIf="g.userPhoneNumber.errors.required">Phone number is required</div>
+                </div>
+            </div>
+            <div class="col form-holder">
+              <label for="department">department</label>
+              <input formControlName="department" type="text" name="department" class="form-control" id="department" [ngClass]="{'is-invalid': submittedAdmin && g.department.errors}"/>
+              <div *ngIf="g.department.errors" class="invalid-feedback">
+                  <div *ngIf="g.department.errors.required">Department is required</div>
+              </div>
+            </div>
+          </div>
+          <button class="btn secondary-button">Update Info</button>
+      </form>
+    </div>
+  </div>
+</div>

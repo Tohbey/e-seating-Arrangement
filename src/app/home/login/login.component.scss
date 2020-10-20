@@ -1,7 +1,6 @@
 @import '../../sass/home/main';
+@import '../../sass/variables';
 $main-color: #707BB0;
-$white: #ffffff;
-
 .login{
   display: grid;
   width:100%;
@@ -13,7 +12,7 @@ $white: #ffffff;
     font-family: $font-medium;
     font-size: 4rem;
     font-weight: 600;
-    color: $white;
+    color: $color-white;
     text-transform: uppercase;
     margin-bottom: 3rem;
   }
@@ -21,7 +20,7 @@ $white: #ffffff;
   &--subheader{
     font-family: $font-medium;
     font-size: 2rem;
-    color: rgba($white, 0.68);
+    color: rgba($color-white, 0.68);
     margin-bottom: 5rem;
   }
 
@@ -30,9 +29,9 @@ $white: #ffffff;
     &:visited,
     &:active{
       padding: 10px;
-      border: 3px $white solid;
+      border: 3px $color-white solid;
       border-radius: 10px;
-      color: $white;
+      color: $color-white;
       text-transform: capitalize;
       font-size: 1.8rem;
       cursor: pointer;
@@ -41,8 +40,8 @@ $white: #ffffff;
     &:hover{
       padding: 10px;
       border-radius: 10px;
-      color: black;
-      background-color: white;
+      color: $color-black;
+      background-color: $color-white;
       font-size: 1.8rem;
       transition: all .3s;
     }
@@ -79,7 +78,7 @@ $white: #ffffff;
     display: flex;
     flex-direction: column;
     padding: 2rem;
-    background-color: $white;
+    background-color: $color-white;
     align-items: center;
     justify-content: center;
     position: relative;
@@ -101,7 +100,7 @@ $white: #ffffff;
       font-family: $font-primary;
       font-size: 2rem;
       text-transform: capitalize;
-      color: black;
+      color: $color-black;
       text-align: center;
       margin-bottom: 10px;
     }
@@ -123,7 +122,7 @@ $white: #ffffff;
     padding: 8px;
     height: 4rem;
     border-radius: 5px;
-    border: 1px black solid;
+    border: 1px $color-black solid;
     &::placeholder{
       font-family: $font-primary;
     }
@@ -132,7 +131,7 @@ $white: #ffffff;
     font-family: $font-primary;
     text-transform: capitalize;
     font-size: 1.2rem;
-    color: black;
+    color: $color-black;
   }
 }
 
@@ -141,12 +140,18 @@ $white: #ffffff;
   margin-right: auto;
   margin-top: 2rem;
   width: 29rem;
-  color: white;
+  color: $color-white;
   font-size: 1.5rem;
   font-family: $font-primary;
   text-transform: uppercase;
-  background-color: black;
+  background-color: $color-black;
   text-align: center;
   padding: 10px;
   border-radius: 8px;
+
+  &:hover{
+    color: $color-black;
+    border: 1px solid $color-black;
+    background-color: $color-white;
+  }
 }

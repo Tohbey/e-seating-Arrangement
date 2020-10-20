@@ -10,5 +10,6 @@ export class User{
     userPassword:String;
     userIsActive:number;
     userPhoneNumber:String;
+    department:String;
     roles:Role[];
 }

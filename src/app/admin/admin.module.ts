@@ -14,6 +14,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 
 
 @NgModule({
@@ -35,6 +36,7 @@ import { ToolbarComponent } from './toolbar/toolbar.component';
     ReactiveFormsModule,
     HttpClientModule,
     NgxPaginationModule,
+    FontAwesomeModule,
   ],
   exports:[
     AdminComponent,

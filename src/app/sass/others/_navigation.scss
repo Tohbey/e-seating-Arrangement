@@ -1,4 +1,5 @@
 @import '../home/main';
+@import '../variables';
 
 .nav{
   &-container{
@@ -21,7 +22,7 @@
 
     &--text{
       font-family: $font-medium;
-      color: white;
+      color: $color-white;
       font-size: 1.5rem;
       padding-left: 2px;
       width: 9rem;
@@ -46,6 +47,7 @@
       align-items: center;
       text-decoration: none;
       cursor: pointer;
+      border: none;
     }
     &-icon{
       width: 3rem;
@@ -56,11 +58,11 @@
     &-text{
       font-family: $font-primary;
       font-size: 1.4rem;
-      color: black;
+      color: $color-black;
       text-transform: capitalize;
 
       &:hover{
-        color: white;
+        color: $color-white;
       }
     }
   }
@@ -89,7 +91,7 @@
       &--text{
         font-family: $font-primary;
         font-size: 1.4rem;
-        color: black;
+        color: $color-black;
         text-transform: capitalize;
       }
     }

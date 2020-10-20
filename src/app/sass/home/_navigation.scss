@@ -1,7 +1,9 @@
+@import '../variables';
+
 .navigation{
   grid-column: 1/13;
   grid-row: nav-start/nav-end;
-  background-color: #432626;
+  background-color: $color-primary;
   display: flex;
   align-items: center;
 
@@ -33,7 +35,7 @@
     text-transform: capitalize;
     font-family: $font-medium;
     font-size: 1.15rem;
-    color: white;
+    color: $color-white;
     cursor: pointer;
 
     &-active{
@@ -57,14 +59,15 @@
       font-size: 1.15rem;
       border: none;
       text-transform: uppercase;
-      background-color: white;
-      color: black;
+      background-color: $color-black;
+      color: $color-white;
       border-radius: 5px;
       cursor: pointer;
       text-decoration: none;
     }
     &:hover{
-      color: black;
+      color: $color-black;
+      background-color: $color-white;
       font-size: 1.2rem;
       font-weight: 500;
       text-decoration: none;
@@ -93,7 +96,7 @@
 
   &-header{
     font-family: $font-Subheader;
-    color: white;
+    color: $color-white;
     font-size: 1.3rem;
     padding-left: 2px;
     width: 9rem;

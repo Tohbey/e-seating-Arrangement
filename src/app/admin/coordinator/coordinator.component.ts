@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Coordinators } from 'src/app/models/coordinators';
 import { CoordinatorService } from 'src/app/Services/coordinatorService/coordinator.service';
 import { HallService } from 'src/app/Services/hallService/hall.service';
+import { NotificationService } from 'src/app/Services/notification/notification.service';
 
 @Component({
   selector: 'app-coordinator',
@@ -16,7 +17,7 @@ export class CoordinatorComponent implements OnInit {
   coordinatorDetail:Coordinators;
   submitted = false;
   constructor(private formBuilder:FormBuilder,
-    private coordinatorService:CoordinatorService,
+    private coordinatorService:CoordinatorService,private notifyService : NotificationService,
     private hallService:HallService) { }
   coordinators:any;
   updatedDetail:Coordinators;
@@ -24,6 +25,7 @@ export class CoordinatorComponent implements OnInit {
   id:String;
   itemPerPage:any = 10;
   paginationConfig:any = {};
+  title="e-Seating Arrangemnt";
 
   ngOnInit(): void {
     this.coordinatorsForm = this.formBuilder.group({
@@ -72,6 +74,7 @@ export class CoordinatorComponent implements OnInit {
     this.coordinatorDetail = this.coordinatorsForm.value;
     console.log(this.coordinatorDetail);
     this.coordinatorService.createCoordinator(this.coordinatorDetail).subscribe((data:{})=>{
+      this.notifyService.showSuccess("Coordinator has been Created Successfully ",this.title)
       this.AllCoordinator()
     })
     this.coordinatorsForm.reset();
@@ -93,6 +96,7 @@ export class CoordinatorComponent implements OnInit {
     this.updatedDetail = this.coordinatorUpdate.value;
     console.log(this.updatedDetail);
     this.coordinatorService.updateCoordinator(this.updatedDetail.id,this.updatedDetail).subscribe((data) => {
+      this.notifyService.showSuccess("Coordinator has been Updated Successfully ",this.title)
       this.AllCoordinator();
     });
     this.coordinatorsForm.reset();

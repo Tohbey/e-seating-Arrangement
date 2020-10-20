@@ -1,8 +1,10 @@
+@import '../variables';
+
 .footer{
   grid-column: 1/13;
   grid-row: footer-start/footer-end;
-  background-color: #515151;
-  color: white;
+  background-color: $color-primary;
+  color: $color-white;
   padding: 3rem;
   display: grid;
   grid-template-columns: repeat(5,1fr);

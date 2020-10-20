@@ -19,8 +19,5 @@ export class HomePageComponent implements OnInit {
   instagram = faInstagram;
 
   constructor() { }
-
-  ngOnInit(): void {
-  }
-
+  ngOnInit(): void {}
 }

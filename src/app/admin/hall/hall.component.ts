@@ -24,7 +24,7 @@ export class HallComponent implements OnInit {
   coordinatorNames:String[];
   hallNames:String[]
   session:ExamSession[]=[];
-  title="Project-Demo";
+  title="e-Seating Arrangemnt";
   itemsPerPage:any = 5;
   paginationConfig:any= {};
 
