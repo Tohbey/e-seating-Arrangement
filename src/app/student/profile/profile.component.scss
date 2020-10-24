@@ -1,0 +1,71 @@
+@import '../../sass/others/component';
+@import '../../sass/others/main';
+
+.row{
+  margin-top: 20px;
+  display: grid;
+  grid-template-columns: repeat(5,1fr);
+  grid-column-gap: 2rem;
+}
+
+.text{
+  &-header{
+    font-family: $font-medium;
+    text-transform: capitalize;
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+  }
+
+  &-body{
+    font-family: $font-primary;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+  }
+}
+
+.contain{
+  width: 100%;
+  padding: 15px;
+  background-color: white;
+  margin-top: 5rem;
+
+  &-row{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    align-items: center;
+    grid-column-gap: 2rem;
+  }
+
+  &-row-1{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    align-items: center;
+    grid-column-gap: 2rem;
+  }
+}
+
+.input-container {
+  display: -ms-flexbox; /* IE10 */
+  display: flex;
+  width: 100%;
+  margin-bottom: 15px;
+  align-items: center;
+}
+
+.icon {
+  padding: 10px;
+  min-width: 32px;
+  background-color: $color-button-secondary;
+  color: $color-white;
+  text-align: center;
+}
+
+.input-field {
+  width: 100%;
+  padding: 10px;
+  outline: none;
+}
+
+.input-field:focus {
+  border: 2px solid dodgerblue;
+}

@@ -1,0 +1,34 @@
+@import '../../sass/others/component';
+@import '../../sass/others/main';
+
+.exam-pass{
+  margin-top: 3rem;
+}
+
+.row{
+  display: grid;
+  grid-template-columns: repeat(3,1fr);
+  grid-column-gap: 10px;
+  margin-bottom: 10px;
+}
+
+.text{
+  &-header{
+    font-family: $font-medium;
+    text-transform: capitalize;
+    font-size: 1.7rem;
+    margin-bottom: 8px;
+  }
+
+  &-body{
+    font-family: $font-primary;
+    text-transform: capitalize;
+    font-size: 1.2rem;
+  }
+}
+
+.small-box{
+  float: right;
+  margin-top: 10px;
+  margin-right: 9.5rem;
+}

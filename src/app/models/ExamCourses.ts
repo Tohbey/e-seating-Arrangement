@@ -3,4 +3,5 @@ export class ExamCourses{
   courseCode:String;
   examTime:String;
   examDay:String;
+  weekNumber:number;
 }

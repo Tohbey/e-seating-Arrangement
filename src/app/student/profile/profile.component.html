@@ -1,1 +1,82 @@
-<p>profile works!</p>
+<div style="margin-left: 6rem;">
+  <div style="float: right;">
+    <p class="table-text">{{day.day}}</p>
+  </div>
+  <h4 class="header">Student Details</h4>
+  <div>
+    <a class="btn primary-button"  style="margin-right: 10px;" (click)="changePassword()">Change Password</a>
+  </div>
+  <div class="row">
+    <div>
+      <p class="text-header">Full Name</p>
+      <p class="text-body">{{studentDetail.surname}} {{studentDetail.otherName}}</p>
+    </div>
+    <div>
+      <p class="text-header">E-mail</p>
+      <p class="text-body">{{studentDetail.email}}</p>
+    </div>
+    <div>
+      <p class="text-header">Matriculation no.</p>
+      <p class="text-body">{{studentDetail.matricNumber}}</p>
+    </div>
+    <div>
+      <p class="text-header">Phone no.</p>
+      <p class="text-body">{{studentDetail.phoneNumber}}</p>
+    </div>
+    <div>
+      <p class="text-header">Faculty</p>
+      <p class="text-body">{{studentDetail.faculty}}</p>
+    </div>
+  </div>
+  <div class="row">
+    <div>
+      <p class="text-header">Department</p>
+      <p class="text-body">{{studentDetail.department}}</p>
+    </div>
+    <div>
+      <p class="text-header">Programme</p>
+      <p class="text-body">{{studentDetail.programme}}</p>
+    </div>
+    <div>
+      <p class="text-header">Level</p>
+      <p class="text-body">{{studentDetail.level}}</p>
+    </div>
+    <div>
+      <p class="text-header">is-Active</p>
+      <p class="text-body">{{studentDetail.studentIsActive}}</p>
+    </div>
+  </div>
+  <div id="passwordForm" style="display: none;">
+    <div class="contain">
+      <h5 class="header">Change Password</h5>
+      <form [formGroup]="passwordForm" (ngSubmit)="onSubmit()">
+          <div class="contain-row">
+            <div class="col form-holder">
+                <label for="password">New Password</label>
+                <div class="input-container">
+                  <fa-icon class="icon" [icon]="fieldTextType ? visible: notVisible" size="1x" (click)="toggleFieldTextType()"></fa-icon>
+                  <input formControlName="password" [type]="fieldTextType ? 'text': 'password'" name="password" class="input-field" id="password" [ngClass]="{'is-invalid': submittedPassword && f.password.errors}"/>
+                  <div *ngIf="f.password.errors" class="invalid-feedback">
+                      <div *ngIf="f.password.errors.required">password is required</div>
+                  </div>
+                </div>
+            </div>
+            <div class="col form-holder">
+                <label for="confirmPassword">Confirm Password</label>
+                <div class="input-container">
+                  <fa-icon class="icon" [icon]="fieldTextType ? visible: notVisible" size="1x" (click)="toggleFieldTextType()"></fa-icon>
+                  <input formControlName="confirmPassword" [type]="fieldTextType ? 'text': 'password'" name="confirmPassword" class="input-field" id="confirmPassword" [ngClass]="{'is-invalid': submittedPassword && f.confirmPassword.errors}"/>
+                  <div *ngIf="f.confirmPassword.errors" class="invalid-feedback">
+                    <div *ngIf="f.confirmPassword.errors.mustMatch">Password must match</div>
+                    <div *ngIf="f.confirmPassword.errors.required">Confirm Password is required</div>
+                  </div>
+                </div>
+            </div>
+            <div>
+              <button class="btn secondary-button">Update Password</button>
+            </div>
+          </div>
+      </form>
+    </div>
+  </div>
+</div>

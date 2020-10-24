@@ -84,14 +84,21 @@ export class StudentService {
 
   //generate Seats
   generateStudentSeat(id):Observable<ExamSeat>{
-    return this.http.get<ExamSeat>(this.studentUrl+"/generateSeats"+id)
+    return this.http.get<ExamSeat>(this.studentUrl+"/generateSeats/"+id)
     .pipe(
       retry(1),
       catchError(this.handleError)
     )
   }
 
-
+  //getExamByDay
+  getExamByDay(id):Observable<ExamCourses>{
+    return this.http.get<ExamCourses>(this.studentUrl+"/getExamByDay/"+id)
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
 
   //Error Handling
   handleError(error){

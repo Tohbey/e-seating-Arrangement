@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Day } from 'src/app/models/day';
-import { CourseService } from 'src/app/Services/timetabeService/course.service';
+import { CourseService } from 'src/app/Services/courseService/course.service';
 import { TimetableService } from 'src/app/Services/timetabeService/timetable.service';
 import { DayService } from 'src/app/Services/dayService/day.service';
 

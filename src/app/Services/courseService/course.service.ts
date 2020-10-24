@@ -3,6 +3,7 @@ import { throwError, Observable } from 'rxjs';
 import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { ExamCourses } from 'src/app/models/ExamCourses';
 import { catchError, retry } from 'rxjs/operators';
+import { Courses } from 'src/app/models/course';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +11,7 @@ import { catchError, retry } from 'rxjs/operators';
 export class CourseService {
 
   private coursesUrl = 'http://localhost:8080/ExamCourses';
+  private mainCourseUrl = 'http://localhost:8080/courses';
 
   constructor(private http:HttpClient) { }
 
@@ -69,6 +71,16 @@ export class CourseService {
         catchError(this.handleError)
       )
     }
+
+    //get courses by course code
+    getCourseByCourseCode(courseCode):Observable<Courses>{
+      return this.http.get<Courses>(this.mainCourseUrl+"/courseCode/"+courseCode)
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+    }
+
 
     //deleting course
     deleteHallById(id){

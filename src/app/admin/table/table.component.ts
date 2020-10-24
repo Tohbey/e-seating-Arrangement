@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Exam } from 'src/app/models/exams';
-import { CourseService } from 'src/app/Services/timetabeService/course.service';
+import { CourseService } from 'src/app/Services/courseService/course.service';
+
 
 @Component({
   selector: 'app-table',
