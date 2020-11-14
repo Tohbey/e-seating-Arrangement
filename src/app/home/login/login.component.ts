@@ -21,6 +21,7 @@ export class LoginComponent implements OnInit {
   role;
   invalidLogin: boolean;
   errorMessage = 'Invalid Credentials';
+  errorMessage1:any;
 
   constructor(
     private http: HttpClient,
@@ -31,7 +32,9 @@ export class LoginComponent implements OnInit {
     this.studentForm();
   }
 
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    console.log(window.screen.width)
+  }
 
   lecturerForm() {
     this.lecturer = this.formBuilder.group({
@@ -55,11 +58,13 @@ export class LoginComponent implements OnInit {
   }
 
   asLecturer(){
+    this.invalidLogin = false
     document.getElementById('lecturer').style.display = 'block'
     document.getElementById('student').style.display = 'none'
   }
 
   asStudent(){
+    this.invalidLogin = false
     document.getElementById('lecturer').style.display = 'none'
     document.getElementById('student').style.display = 'block'
   }
@@ -114,6 +119,8 @@ export class LoginComponent implements OnInit {
           } else if(this.role === 'Coordinator'){
             this.router.navigate(['../coordinator']);
           }else{
+            this.invalidLogin = true;
+            this.errorMessage1 = "Switch to Student login"
             this.submitted = false;
           }
         });

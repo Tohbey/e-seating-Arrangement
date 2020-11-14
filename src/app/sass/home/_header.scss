@@ -7,20 +7,54 @@
   justify-items: center;
   align-items: center;
 
+  @media only screen and (max-width: $mobile-large){
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-right: auto;
+    margin-left: 10rem;
+  }
+
   &-image{
     width: 73rem;
     height: 53rem;
     background-size: contain;
     margin-left: 6rem;
+
+    @media only screen and (max-width: $laptop-small){
+      width: 65rem;
+    }
+
+    @media only screen and (max-width: $tablet-small){
+      margin-left: 0;
+      width: 54rem;
+      height: 48rem;
+    }
+    @media only screen and (max-width: $tablet){
+      margin-left: 0;
+      width: 46rem;
+      height: 46rem;
+    }
+    @media only screen and (max-width: $mobile-large){
+      margin-left: 0;
+      width: 40rem;
+      height: 40rem;
+    }
   }
+
 
   &-textHolder{
     width: 43rem;
     margin-left: -9rem;
+    @media only screen and (max-width: $tablet){
+      margin-left: -1rem;
+    }
     &--header{
       width: 37rem;
       font-family: $font-Subheader;
       font-size: 3rem;
+      @media only screen and (max-width: $tablet-small){
+        font-size: 2.5rem;
+      }
     }
     &--body{
       margin-top: 1rem;
@@ -29,6 +63,9 @@
       font-family: $font-primary;
       font-size: 1.8rem;
       text-align: justify;
+      @media only screen and (max-width: $tablet-small){
+        width: 35rem;
+      }
     }
   }
 }

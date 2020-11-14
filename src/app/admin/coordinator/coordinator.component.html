@@ -12,6 +12,7 @@
               <th scope="col">Department</th>
               <th scope="col">Phone No.</th>
               <th scope="col">Work Post</th>
+              <th scope="col">Role</th>
               <th scope="col">Action</th>
             </tr>
           </thead>
@@ -23,6 +24,7 @@
                 <td class="table-text">{{coordinator?.coordinatorDepartment}}</td>
                 <td class="table-text">{{coordinator?.coordinatorPhoneNumber}}</td>
                 <td class="table-text">{{coordinator?.hallName}}</td>
+                <td class="table-text">{{coordinator?.role}}</td>
                   <td>
                       <button (click)="onDelete(coordinator?.id)"  style="margin-right: 5px;" class="btn primary-danger">delete</button>
                       <button (click)="onEdit(coordinator?.id,coordinator)" class="btn primary-button">edit</button>

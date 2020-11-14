@@ -17,7 +17,23 @@ export class HomePageComponent implements OnInit {
   facebook = faFacebookF;
   linkedin = faLinkedinIn;
   instagram = faInstagram;
+  menuOpen = false;
 
-  constructor() { }
+  constructor() {}
   ngOnInit(): void {}
+
+  openMenu(){
+    let menuBtn = document.querySelector('.hamburger--container')
+    let navigation = document.querySelector('.navigation')
+    if(!this.menuOpen){
+      menuBtn.classList.add('open');
+      this.menuOpen = true;
+      navigation.classList.add('navigation-open')
+    }
+    else{
+      menuBtn.classList.remove('open');
+      this.menuOpen = false;
+      navigation.classList.remove('navigation-open')
+    }
+  }
 }

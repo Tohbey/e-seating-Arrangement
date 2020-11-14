@@ -131,6 +131,9 @@ export class UserAccessComponent implements OnInit {
     Object.keys(this.userForm.controls).forEach(key => {
       this.userForm.get(key).setErrors(null) ;
     });
+    document.getElementById('fetch').style.display = 'none'
+    document.getElementById('newUser').style.display = 'none'
+
   }
 
 

@@ -4,6 +4,8 @@ $font-header: 'Poppins-Bold';
 $font-Subheader: 'Poppins-SemiBold';
 $font-medium: 'Poppins-Medium';
 
+@import '../variables';
+
 *,
 *::before,
 *::after {
@@ -16,6 +18,38 @@ $font-medium: 'Poppins-Medium';
 html{
   box-sizing: border-box;
   font-size: 62.5%; // 10px/16px = 62.5% -> 1rem = 10px
+
+  @media only screen and (max-width: $laptop-medium){
+    font-size: 58%;
+  }
+
+  @media only screen and (max-width: $laptop-small){
+    font-size: 54%;
+  }
+
+  @media only screen and (max-width: $tablet-big){
+    font-size: 50%;
+  }
+
+  @media only screen and (max-width: $tablet-small){
+    font-size: 48%;
+  }
+
+  @media only screen and (max-width: $tablet){
+    font-size: 44%;
+  }
+
+  @media only screen and (max-width: $mobile-large){
+    font-size: 40%;
+  }
+
+  @media only screen and (max-width: $mobile-medium){
+    font-size: 36%;
+  }
+
+  @media only screen and (max-width: $mobile-small){
+    font-size: 30%;
+  }
 }
 
 
@@ -29,8 +63,19 @@ body {
   display: grid;
   width:100%;
   overflow: hidden;
-  grid-template-rows: [nav-start] 6rem [nav-end header-start] minmax(min-content,1fr) [header-end about-start] minmax(min-content,1fr) [about-end contact-start] 44rem [contact-end footer-start]25rem [footer-end];
+  grid-template-rows: [nav-start] 6rem [nav-end header-start]
+  minmax(min-content,1fr) [header-end about-start]
+  minmax(min-content,1fr) [about-end contact-start]
+  minmax(44rem,1fr) [contact-end footer-start]25rem [footer-end];
   grid-template-columns: repeat(12, minmax(min-content,14rem));
+  @media only screen and (max-width: $mobile-large){
+    grid-template-rows: [nav-start] 6rem [nav-end header-start]
+    minmax(min-content,1fr) [header-end about-start]
+    minmax(min-content,1fr) [about-end contact-start]
+    55rem [contact-end footer-start]
+    55rem [footer-end];
+    grid-template-columns: repeat(12, minmax(min-content,14rem));
+  }
 }
 
 @font-face{

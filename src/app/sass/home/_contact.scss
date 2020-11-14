@@ -3,16 +3,35 @@
 .contact{
   grid-column: 1/13;
   grid-row: contact-start/contact-end;
-
   padding: 10px;
   display: grid;
   grid-template-columns: repeat(2,1fr);
   align-items: center;
 
+  @media only screen and (max-width: $mobile-large){
+    display: grid;
+    grid-template-columns: 1fr;
+    margin-right: auto;
+    margin-left: auto;
+    align-items: flex-start;
+    margin-top: 5rem;
+  }
+
   &--image{
     margin-left: 20rem;
     width: 40rem;
     height: 40rem;
+    @media only screen and (max-width: $laptop-small){
+      margin-left: 5rem;
+    }
+    @media only screen and (max-width: $tablet){
+      margin-left: 0;
+    }
+    &-container{
+      @media only screen and (max-width: $mobile-large){
+        display: none;
+      }
+    }
   }
 
   &--button{
@@ -44,8 +63,14 @@
   &--detail{
     display: flex;
     flex-direction: column;
-    margin-left: 15rem;
     width: 43rem;
+    margin-left: 15rem;
+    @media only screen and (max-width: $laptop-small){
+      margin-left: 0;
+    }
+    @media only screen and (max-width: $tablet){
+      margin-left: -4rem;
+    }
     &-header{
       margin-bottom: 2rem;
       &-text{
@@ -53,6 +78,10 @@
         font-size: 1.8rem;
         font-weight: 500;
         text-transform: capitalize;
+        @media only screen and (max-width: $mobile-large){
+          font-size: 3rem;
+          font-family: $font-Subheader;
+        }
       }
     }
 

@@ -43,7 +43,7 @@
             <label for="userEmail">User Email</label>
             <select formControlName="userEmail" id="userEmail" class="form-control" [ngClass]="{'is-invalid': submitted && f.userEmail.errors}">
               <option selected>Choose...</option>
-              <option *ngFor="let k of emails" [ngValue]="k">{{k}}</option>
+              <option class="text--body" *ngFor="let k of emails" [ngValue]="k">{{k}}</option>
             </select>
             <div *ngIf="f.userEmail.errors" class="invalid-feedback">
                 <div *ngIf="f.userEmail.errors.required">userEmail is required</div>

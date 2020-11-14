@@ -1,5 +1,8 @@
 <div class="home">
-  <div class="navigation">
+  <div (click)="openMenu()" class="hamburger--container">
+    <div class="hamburger"></div>
+  </div>
+  <div class="navigation" id="navigation">
     <div class="navigation--holder">
       <div class="logo-container">
         <img class="logo-img" src="../../../assets//Images//Logo-icon.png" />
@@ -11,7 +14,7 @@
           <li class="nav-items">about</li>
           <li class="nav-items">contact</li>
           <li class="nav-items">reviews</li>
-          <div style="display: flex;align-items: center;">
+          <div class="nav--holder">
             <a class="nav-button" [routerLink]="['/login']">login</a>
             <img class="nav--icon" src="../../../assets/Images//Profile-icon.png" />
           </div>
@@ -48,7 +51,7 @@
     </div>
   </div>
   <div class="contact" id="contact">
-    <div>
+    <div class="contact--image-container">
       <img class="contact--image" src="../../../assets//Images//character 24.svg" />
     </div>
     <div class="contact--detail">
@@ -128,6 +131,9 @@
         <div class="footer--5-icon">
           <fa-icon [icon]="linkedin" size="2x"></fa-icon>
         </div>
+      </div>
+      <div class="footer--6">
+        <p class="footer--6--text">© e-seating Arrangment</p>
       </div>
     </footer>
 </div>

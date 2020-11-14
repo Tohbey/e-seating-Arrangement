@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse, HttpHeaders } from '@angular/common/http';
 import { Observable, throwError } from 'rxjs';
 import { Student } from 'src/app/models/student';
 import { retry, catchError } from 'rxjs/operators';
@@ -101,16 +101,17 @@ export class StudentService {
   }
 
   //Error Handling
-  handleError(error){
-    let errorMessage="";
-    if(error.error instanceof ErrorEvent){
-      //Get client-side error
-      errorMessage = error.error.message;
-    }else{
-      //get serve-side error
-      errorMessage = 'Error Code: $(error.status)\n Message:$(error.error.message)'
-      }
-    console.log(errorMessage);
-    return throwError(errorMessage);
+  handleError(error:HttpErrorResponse){
+    // let errorMessage="";
+    // if(error.error instanceof ErrorEvent){
+    //   //Get client-side error
+    //   errorMessage = error.message;
+    // }else{
+    //   //get serve-side error
+    //   errorMessage = 'Error Code: $(error.status)\n Message:$(error.error.message)'
+    //   }
+    console.log(error.error.message);
+    window.alert(error.error.message)
+    return throwError(error);
   }
 }

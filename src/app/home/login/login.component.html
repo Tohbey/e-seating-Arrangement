@@ -1,20 +1,23 @@
 <div class="login">
   <div class="login--left">
     <div class="login--left-container">
-      <p class="login--header">Welcome to e-seating arrangment</p>
+      <p class="login--header">Welcome to</p>
+      <p class="login--header">e-seating arrangment</p>
       <p class="login--subheader">Join us today and let us help you with your examination malpractice issues.</p>
       <div class="login--left-container--small">
-      <a class="login--button" (click)="asLecturer()">sign in as lecture</a>
-      <a class="login--button" (click)="asStudent()">sign in as student</a>
+        <a class="login--button" (click)="asLecturer()">sign in as lecture</a>
+        <a class="login--button" (click)="asStudent()">sign in as student</a>
       </div>
     </div>
   </div>
   <div class="login--right">
     <div class="login--right-container">
-      <img class="login--right-image" src="../../../assets/Images//student.png" />
+      <img class="login--right-image" id="lecture-image" src="../../../assets/Images//student.png" />
       <div class="login--right-input-box">
         <div id="lecturer">
           <p class="login--right-header">Login as Lecturer</p>
+          <div class="alert alert-warning" *ngIf='invalidLogin' >{{errorMessage}}</div>
+          <div class="alert alert-warning" *ngIf='invalidLogin' >{{errorMessage1}}</div>
           <form autocomplete="off" [formGroup]="lecturer">
             <div>
               <div class="form-group">
@@ -41,6 +44,7 @@
       </div>
       <div class="login--right-input-box">
         <div id="student" style="display: none;">
+          <div class="alert alert-warning" *ngIf='invalidLogin' >{{errorMessage}}</div>
           <p class="login--right-header">Login as student</p>
           <form autocomplete="off" [formGroup]="student">
             <div>

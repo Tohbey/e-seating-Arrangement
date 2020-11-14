@@ -1,6 +1,6 @@
 <div style="margin-left: 6rem;">
   <div style="float: right;">
-    <p class="table-text">{{day.day}}</p>
+    <p class="table-text">{{day?.day}}</p>
   </div>
   <h4 class="header">Student Details</h4>
   <div>
@@ -9,41 +9,41 @@
   <div class="row">
     <div>
       <p class="text-header">Full Name</p>
-      <p class="text-body">{{studentDetail.surname}} {{studentDetail.otherName}}</p>
+      <p class="text-body">{{studentDetail?.surname}} {{studentDetail?.otherName}}</p>
     </div>
     <div>
       <p class="text-header">E-mail</p>
-      <p class="text-body">{{studentDetail.email}}</p>
+      <p class="text-body">{{studentDetail?.email}}</p>
     </div>
     <div>
       <p class="text-header">Matriculation no.</p>
-      <p class="text-body">{{studentDetail.matricNumber}}</p>
+      <p class="text-body">{{studentDetail?.matricNumber}}</p>
     </div>
     <div>
       <p class="text-header">Phone no.</p>
-      <p class="text-body">{{studentDetail.phoneNumber}}</p>
+      <p class="text-body">{{studentDetail?.phoneNumber}}</p>
     </div>
     <div>
       <p class="text-header">Faculty</p>
-      <p class="text-body">{{studentDetail.faculty}}</p>
+      <p class="text-body">{{studentDetail?.faculty}}</p>
     </div>
   </div>
   <div class="row">
     <div>
       <p class="text-header">Department</p>
-      <p class="text-body">{{studentDetail.department}}</p>
+      <p class="text-body">{{studentDetail?.department}}</p>
     </div>
     <div>
       <p class="text-header">Programme</p>
-      <p class="text-body">{{studentDetail.programme}}</p>
+      <p class="text-body">{{studentDetail?.programme}}</p>
     </div>
     <div>
       <p class="text-header">Level</p>
-      <p class="text-body">{{studentDetail.level}}</p>
+      <p class="text-body">{{studentDetail?.level}}</p>
     </div>
     <div>
       <p class="text-header">is-Active</p>
-      <p class="text-body">{{studentDetail.studentIsActive}}</p>
+      <p class="text-body">{{studentDetail?.studentIsActive}}</p>
     </div>
   </div>
   <div id="passwordForm" style="display: none;">

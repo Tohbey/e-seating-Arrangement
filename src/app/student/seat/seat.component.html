@@ -1,6 +1,6 @@
 <div>
     <div style="float: right;">
-      <p class="table-text">{{day.day}}</p>
+      <p class="table-text">{{day?.day}}</p>
     </div>
     <h4 class="header">Generate Seat</h4>
     <div style="padding-bottom: 5px;">
@@ -32,40 +32,40 @@
       <div class="row">
           <div>
             <p class="text-header">Full Name</p>
-            <p class="text-body">{{this.studentDetail.surname}} {{this.studentDetail.otherName}}</p>
+            <p class="text-body">{{this.studentDetail?.surname}} {{this.studentDetail?.otherName}}</p>
           </div>
           <div>
             <p class="text-header">Matriculation No.</p>
-            <p class="text-body">{{this.studentDetail.matricNumber}}</p>
+            <p class="text-body">{{this.studentDetail?.matricNumber}}</p>
           </div>
           <div>
             <p class="text-header">Hall</p>
-            <p class="text-body">{{this.studentDetail.examHall}}</p>
+            <p class="text-body">{{this.studentDetail?.examHall}}</p>
           </div>
       </div>
 
       <div class="row">
         <div>
           <p class="text-header">Course Code</p>
-          <p class="text-body">{{this.studentExamCourses.courseCode}}</p>
+          <p class="text-body">{{this.studentExamCourses?.courseCode}}</p>
         </div>
         <div>
           <p class="text-header">Course title</p>
-          <p class="text-body">{{this.course.courseTitle}}</p>
+          <p class="text-body">{{this.course?.courseTitle}}</p>
         </div>
         <div>
           <p class="text-header">Unit</p>
-          <p class="text-body">{{this.course.courseUnit}}</p>
+          <p class="text-body">{{this.course?.courseUnit}}</p>
         </div>
       </div>
       <div class="row">
         <div>
           <p class="text-header">Time</p>
-          <p class="text-body">{{this.studentExamCourses.examTime}}</p>
+          <p class="text-body">{{this.studentExamCourses?.examTime}}</p>
         </div>
         <div>
           <p class="text-header">Seat Id</p>
-          <p class="text-body">{{this.studentDetail.examSeat}}</p>
+          <p class="text-body">{{this.studentDetail?.examSeat}}</p>
         </div>
         <div>
           <p class="text-header">Exam Session</p>

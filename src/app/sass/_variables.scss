@@ -1,13 +1,15 @@
-// RESPONSIVE BREAKPOINTS
-$bp-big: 87.5em;   // 1400px perfect
-$bp-largest: 75em;   // 1200px perfect
-$bp-large: 62.5em;   // 1000px perfect
-$bp-medium: 50em;    // 800px; perfect
-$bp-small: 37.5em;    // 600px;
-$bp-mobile: 26em; //416px
-$bq-mobile-small: 23.5; //378
+//new Responsive breakpoints
 
-$color-black: #000000;
+$laptop-medium: 75em;       //1200px
+$laptop-small: 64em;        //1024px
+$tablet-big: 56em;          //896px
+$tablet-small: 48em;        //768px
+$tablet: 37.28em;           //596.5px
+$mobile-large:  26.8em;    //429px
+$mobile-medium: 23.46em;    //375px
+$mobile-small:  20.1em;     //320px
+
+$color-black: #201e1e;
 $color-white: #ffffff;
 $color-grey-dark: #777;
 $color-primary: #707BB0;

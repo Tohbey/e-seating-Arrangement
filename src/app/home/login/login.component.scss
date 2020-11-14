@@ -1,27 +1,28 @@
 @import '../../sass/home/main';
 @import '../../sass/variables';
 $main-color: #707BB0;
+
 .login{
   display: grid;
   width:100%;
   overflow: hidden;
-  grid-template-columns: 1fr 50rem;
+  grid-template-columns: 1fr 40rem;
   height: 100vh;
 
   &--header{
     font-family: $font-medium;
-    font-size: 4rem;
+    font-size: 3.5rem;
     font-weight: 600;
     color: $color-white;
     text-transform: uppercase;
-    margin-bottom: 3rem;
   }
 
   &--subheader{
     font-family: $font-medium;
-    font-size: 2rem;
+    font-size: 1.8rem;
     color: rgba($color-white, 0.68);
-    margin-bottom: 5rem;
+    margin-bottom: 3rem;
+    margin-top: 4rem;
   }
 
   &--button{
@@ -53,15 +54,15 @@ $main-color: #707BB0;
       rgba($main-color, 0.6),
       rgba($main-color, 0.6)),
     url(../../../assets/Images/login.png);
-    background-size: contain;
-    background-position: top;
+    background-size: cover;
+    background-repeat: no-repeat;
     padding: 2rem;
     position: relative;
 
     &-container{
       position: absolute;
       margin-left: 1rem;
-      bottom: 10rem;
+      bottom: 13rem;
       height: 25rem;
       display: flex;
       flex-direction: column;
