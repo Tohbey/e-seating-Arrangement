@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { AuthenticationMessage } from '../../models/AuthenticationMessage';
 import { map } from 'rxjs/operators';
+import { APIs } from '../APIs/apis';
 
 @Injectable({
   providedIn: 'root'
@@ -9,7 +10,9 @@ import { map } from 'rxjs/operators';
 export class BasicAuthenticationService {
 
   constructor(private http:HttpClient) { }
-  loginUrl= 'http://localhost:8080/basicauth';
+
+  loginUrl= APIs.loginUrl;
+
   excuteBasicAuthentication(userEmail,password){
     let basicAuthentication = 'Basic ' + window.btoa(userEmail +':'+ password);
 

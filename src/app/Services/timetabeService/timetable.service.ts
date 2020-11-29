@@ -3,13 +3,14 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Timetable } from 'src/app/models/timetable';
 import { Observable, throwError } from 'rxjs';
 import { retry, catchError } from 'rxjs/operators';
+import { APIs } from '../APIs/apis';
 
 @Injectable({
   providedIn: 'root'
 })
 export class TimetableService {
 
-  private timetableUrl = 'http://localhost:8080/time-table'
+  private timetableUrl = APIs.timeTableUrl;
 
   constructor(private http:HttpClient) { }
 

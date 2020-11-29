@@ -5,13 +5,14 @@ import { Student } from 'src/app/models/student';
 import { retry, catchError } from 'rxjs/operators';
 import { ExamCourses } from 'src/app/models/ExamCourses';
 import { ExamSeat } from 'src/app/models/examSeat';
+import { APIs } from '../APIs/apis';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StudentService {
 
-  private studentUrl = 'http://localhost:8080/student';
+  private studentUrl = APIs.studentUrl;
 
   constructor(private http:HttpClient) { }
 

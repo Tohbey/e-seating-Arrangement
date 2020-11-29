@@ -3,13 +3,14 @@ import { Injectable } from '@angular/core';
 import { Observable, throwError } from 'rxjs';
 import { catchError, retry } from 'rxjs/operators';
 import { Day } from 'src/app/models/day';
+import { APIs } from '../APIs/apis';
 
 @Injectable({
   providedIn: 'root'
 })
 export class DayService{
 
-  private dayUrl = 'http://localhost:8080/days';
+  private dayUrl = APIs.dayUrl;
 
   constructor(private http:HttpClient) { }
 

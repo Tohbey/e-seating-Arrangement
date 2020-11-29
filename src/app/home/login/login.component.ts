@@ -22,6 +22,7 @@ export class LoginComponent implements OnInit {
   invalidLogin: boolean;
   errorMessage = 'Invalid Credentials';
   errorMessage1:any;
+  screenSize
 
   constructor(
     private http: HttpClient,
@@ -33,7 +34,8 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(window.screen.width)
+    this.screenSize = window.screen.width;
+    console.log(this.screenSize)
   }
 
   lecturerForm() {
@@ -59,15 +61,32 @@ export class LoginComponent implements OnInit {
 
   asLecturer(){
     this.invalidLogin = false
-    document.getElementById('lecturer').style.display = 'block'
-    document.getElementById('student').style.display = 'none'
+    if(this.screenSize < 596.5){
+      document.getElementById('lecturer').style.display = 'block'
+      document.getElementById('lecture-image').style.display = 'block'
+      document.getElementById('student-image').style.display = 'none'
+      document.getElementById('student').style.display = 'none'
+    }
+    else{
+      document.getElementById('lecturer').style.display = 'block'
+      document.getElementById('student').style.display = 'none'
+    }
+
   }
 
   asStudent(){
     this.invalidLogin = false
-    document.getElementById('lecturer').style.display = 'none'
-    document.getElementById('student').style.display = 'block'
+    if(this.screenSize < 596.5){
+      document.getElementById('lecturer').style.display = 'none'
+      document.getElementById('lecture-image').style.display = 'none'
+      document.getElementById('student-image').style.display = 'block'
+      document.getElementById('student').style.display = 'block'
+    }else{
+      document.getElementById('lecturer').style.display = 'none'
+      document.getElementById('student').style.display = 'block'
+    }
   }
+
 
   studentLogin(){
     this.submitted = true;

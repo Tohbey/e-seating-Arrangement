@@ -4,14 +4,15 @@ import { HttpHeaders, HttpClient } from '@angular/common/http';
 import { ExamCourses } from 'src/app/models/ExamCourses';
 import { catchError, retry } from 'rxjs/operators';
 import { Courses } from 'src/app/models/course';
+import { APIs } from '../APIs/apis';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CourseService {
 
-  private coursesUrl = 'http://localhost:8080/ExamCourses';
-  private mainCourseUrl = 'http://localhost:8080/courses';
+  private coursesUrl = APIs.examCourseUrl;
+  private mainCourseUrl = APIs.courseUrl;
 
   constructor(private http:HttpClient) { }
 

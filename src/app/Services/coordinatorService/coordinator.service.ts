@@ -3,7 +3,7 @@ import { HttpClient, HttpHandler, HttpHeaders } from '@angular/common/http'
 import { Observable,throwError, pipe } from 'rxjs';
 import { Coordinators } from '../../models/coordinators';
 import { retry, catchError } from 'rxjs/operators';
-
+import { APIs } from '../APIs/apis';
 
 
 @Injectable({
@@ -11,7 +11,7 @@ import { retry, catchError } from 'rxjs/operators';
 })
 export class CoordinatorService {
 
-  private coordinatorUrl = 'http://localhost:8080/coordinator';
+  private coordinatorUrl = APIs.coordinatorUrl;
 
   constructor(private http: HttpClient) { }
 

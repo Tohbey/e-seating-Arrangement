@@ -9,9 +9,14 @@ $main-color: #707BB0;
   grid-template-columns: 1fr 40rem;
   height: 100vh;
 
+  @media only screen and (max-width: $tablet){
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+  }
+
   &--header{
     font-family: $font-medium;
-    font-size: 3.5rem;
+    font-size: 3rem;
     font-weight: 600;
     color: $color-white;
     text-transform: uppercase;
@@ -19,7 +24,7 @@ $main-color: #707BB0;
 
   &--subheader{
     font-family: $font-medium;
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     color: rgba($color-white, 0.68);
     margin-bottom: 3rem;
     margin-top: 4rem;
@@ -34,9 +39,20 @@ $main-color: #707BB0;
       border-radius: 10px;
       color: $color-white;
       text-transform: capitalize;
-      font-size: 1.8rem;
+      font-size: 1.5rem;
       cursor: pointer;
       text-decoration: none;
+
+      @media only screen and (max-width: $tablet){
+        padding: 10px;
+        border: 3px $color-black solid;
+        border-radius: 10px;
+        color: $color-black;
+        text-transform: capitalize;
+        font-size: 1.8rem;
+        cursor: pointer;
+        text-decoration: none;
+      }
     }
     &:hover{
       padding: 10px;
@@ -45,6 +61,17 @@ $main-color: #707BB0;
       background-color: $color-white;
       font-size: 1.8rem;
       transition: all .3s;
+    }
+    &-holder{
+      display: none;
+
+      @media only screen and (max-width: $tablet){
+        display: block;
+        margin-bottom: 5rem;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+      }
     }
   }
 
@@ -59,6 +86,10 @@ $main-color: #707BB0;
     padding: 2rem;
     position: relative;
 
+    @media only screen and (max-width: $tablet){
+      display: none;
+    }
+
     &-container{
       position: absolute;
       margin-left: 1rem;
@@ -66,9 +97,8 @@ $main-color: #707BB0;
       height: 25rem;
       display: flex;
       flex-direction: column;
-
       &--small{
-        width: 40rem;
+        width: 35rem;
         display: flex;
         justify-content: space-between;
       }
@@ -90,11 +120,25 @@ $main-color: #707BB0;
       font-family: $font-primary;
       font-size: 1.2rem;
       text-transform: capitalize;
+
     }
 
     &-image{
       margin-left: 7rem;
       height: 21rem;
+
+      @media only screen and (max-width: $tablet){
+        margin-bottom: 10rem;
+        height: 21rem;
+      }
+    }
+    &-image-1{
+      margin-left: 7rem;
+
+      @media only screen and (max-width: $tablet){
+        margin-bottom: 12.5rem;
+        margin-left: 14rem;
+      }
     }
 
     &-header{
@@ -108,6 +152,10 @@ $main-color: #707BB0;
     &-container{
       width: 40rem;
       height: 60rem;
+
+      @media only screen and (max-width: $tablet){
+        height: 70%;
+      }
     }
     &-input-box{
       display: grid;

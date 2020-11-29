@@ -6,13 +6,14 @@ import { retry, catchError } from 'rxjs/operators';
 import { ExamSeat } from 'src/app/models/examSeat';
 import { Student } from 'src/app/models/student';
 import { ExamSession } from 'src/app/models/examSession';
+import { APIs } from '../APIs/apis';
 
 @Injectable({
   providedIn: 'root'
 })
 export class HallService {
 
-  private hallUrl = 'http://localhost:8080/hall';
+  private hallUrl = APIs.hallUrl;
 
   constructor(private http:HttpClient) { }
 
