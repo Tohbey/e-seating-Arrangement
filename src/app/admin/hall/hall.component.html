@@ -1,4 +1,4 @@
-<div style="margin-left: 5rem;">
+<div class="main">
   <div style="padding-bottom: 10px;">
     <button class="btn primary-button" (click)="addHall()" style="margin-right: 8px;">Add Hall</button>
     <button class="btn primary-button" (click)="onDIsplay()">Generate Seats</button>
@@ -27,9 +27,15 @@
             <td class="table-text">{{hall?.hallMainCoordinator}}</td>
             <td class="table-text">{{hall?.hallAssistanceCoordinator}}</td>
               <td>
-                  <button (click)="onDelete(hall?.id)"  style="margin-right: 5px;" class="btn primary-danger">Delete</button>
-                  <button (click)="onEdit(hall?.id,hall)" class="btn primary-button" style="margin-right: 5px;">Edit</button>
-                  <button class="btn secondary-button" (click)="onView(hall?.id)">View</button>
+                  <button (click)="onDelete(hall?.id)"  style="margin-right: 5px;" class="button">
+                    <fa-icon style="color:#C82333;" [icon]="delete" size="2x" ></fa-icon>
+                  </button>
+                  <button (click)="onEdit(hall?.id,hall)" class="button" style="margin-right: 5px;">
+                    <fa-icon style="color:#334753;" [icon]="edit" size="2x" ></fa-icon>
+                  </button>
+                  <button class="button" (click)="onView(hall?.id)">
+                    <fa-icon style="color:#0069D9;" [icon]="view" size="2x" ></fa-icon>
+                  </button>
               </td>
         </tr>
         </tbody>

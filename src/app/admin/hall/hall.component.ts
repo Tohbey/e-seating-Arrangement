@@ -5,6 +5,7 @@ import { Hall } from 'src/app/models/hall';
 import { CoordinatorService } from 'src/app/Services/coordinatorService/coordinator.service';
 import { HallService } from 'src/app/Services/hallService/hall.service';
 import { NotificationService } from 'src/app/Services/notification/notification.service';
+import { faTrash, faPen,faEye} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-hall',
@@ -13,6 +14,9 @@ import { NotificationService } from 'src/app/Services/notification/notification.
 })
 export class HallComponent implements OnInit {
 
+  delete = faTrash;
+  edit = faPen;
+  view = faEye;
   hallForm:FormGroup;
   hallUpdate:FormGroup;
   HallNameForm:FormGroup;

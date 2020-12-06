@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { BasicAuthenticationService } from 'src/app/Services/authenticationService/basic-authentication.service';
+import { faCalendarAlt, faBuilding} from '@fortawesome/free-regular-svg-icons'
 
 @Component({
   selector: 'app-navbar',
@@ -8,6 +9,9 @@ import { BasicAuthenticationService } from 'src/app/Services/authenticationServi
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+
+  timeTable = faCalendarAlt
+  hall = faBuilding
 
   constructor(private basicAuth:BasicAuthenticationService,
     private router:Router) { }

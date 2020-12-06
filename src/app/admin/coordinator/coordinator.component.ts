@@ -4,7 +4,7 @@ import { Coordinators } from 'src/app/models/coordinators';
 import { CoordinatorService } from 'src/app/Services/coordinatorService/coordinator.service';
 import { HallService } from 'src/app/Services/hallService/hall.service';
 import { NotificationService } from 'src/app/Services/notification/notification.service';
-
+import { faTrash, faPen} from '@fortawesome/free-solid-svg-icons'
 @Component({
   selector: 'app-coordinator',
   templateUrl: './coordinator.component.html',
@@ -26,6 +26,8 @@ export class CoordinatorComponent implements OnInit {
   itemPerPage:any = 10;
   paginationConfig:any = {};
   title="e-Seating Arrangemnt";
+  delete = faTrash
+  edit = faPen
 
   ngOnInit(): void {
     this.coordinatorsForm = this.formBuilder.group({

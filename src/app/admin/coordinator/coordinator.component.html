@@ -1,4 +1,4 @@
-<div style="margin-left: 5rem;">
+<div class="main">
   <div style="padding-bottom: 5px;">
       <button class="btn primary-button" (click)="addCoordinator()">Add Lecture</button>
   </div>
@@ -20,14 +20,18 @@
             <tr *ngFor="let coordinator of coordinators | paginate:paginationConfig;let i= index">
                 <td class="table-text">{{coordinator?.coordinatorId}}</td>
                 <td class="table-text">{{coordinator?.coordinatorFullName}}</td>
-                <td class="table-text">{{coordinator?.coordinatorEmail}}</td>
+                <td class="table-text" style="text-transform: lowercase;">{{coordinator?.coordinatorEmail}}</td>
                 <td class="table-text">{{coordinator?.coordinatorDepartment}}</td>
                 <td class="table-text">{{coordinator?.coordinatorPhoneNumber}}</td>
                 <td class="table-text">{{coordinator?.hallName}}</td>
                 <td class="table-text">{{coordinator?.role}}</td>
                   <td>
-                      <button (click)="onDelete(coordinator?.id)"  style="margin-right: 5px;" class="btn primary-danger">delete</button>
-                      <button (click)="onEdit(coordinator?.id,coordinator)" class="btn primary-button">edit</button>
+                      <button class="button" (click)="onDelete(coordinator?.id)"  style="margin-right: 5px;">
+                        <fa-icon style="color:#C82333;" [icon]="delete" size="2x" ></fa-icon>
+                      </button>
+                      <button class="button" (click)="onEdit(coordinator?.id,coordinator)">
+                        <fa-icon style="color: #334753;" [icon]="edit" size="2x"></fa-icon>
+                      </button>
                   </td>
             </tr>
           </tbody>

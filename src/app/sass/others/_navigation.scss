@@ -8,6 +8,10 @@
     margin-top: 5rem;
     padding: 5px;
     position: relative;
+
+    @media only screen and (max-width: $laptop-medium){
+      width: 20rem;
+    }
   }
 
   &-header{
@@ -53,6 +57,7 @@
       width: 3rem;
       height: 3rem;
       margin-right: 8px;
+      color: black;
     }
 
     &-text{

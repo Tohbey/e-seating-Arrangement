@@ -3,6 +3,7 @@ import { FormGroup, FormBuilder, Validators, FormArray } from '@angular/forms';
 import { Coordinators } from 'src/app/models/coordinators';
 import { CoordinatorService } from 'src/app/Services/coordinatorService/coordinator.service';
 import { UsersService } from 'src/app/Services/userService/users.service';
+import { faTrash} from '@fortawesome/free-solid-svg-icons'
 
 @Component({
   selector: 'app-user-access',
@@ -11,7 +12,7 @@ import { UsersService } from 'src/app/Services/userService/users.service';
 })
 export class UserAccessComponent implements OnInit {
 
-
+  delete = faTrash
   users:any;
   userEmail:any;
   emails:any;

@@ -1,4 +1,4 @@
-<div style="margin-left: 5rem;">
+<div class="main">
   <div style="padding-bottom: 5px;">
     <button class="btn primary-button" (click)="addUser()">Add Lecture</button>
   </div>
@@ -22,13 +22,15 @@
           <td class="table-text">{{user?.userId}}</td>
           <td class="table-text">{{user?.userSurname}}</td>
           <td class="table-text">{{user?.userOtherName}}</td>
-          <td class="table-text">{{user?.userEmail}}</td>
+          <td class="table-text" style="text-transform: lowercase;">{{user?.userEmail}}</td>
           <td class="table-text">{{user?.department}}</td>
           <td class="table-text">{{user?.userIsActive}}</td>
           <td class="table-text">{{user?.userPhoneNumber}}</td>
           <td class="table-text">{{user?.roles[0].role}}</td>
           <td>
-            <button style="margin-right: 5px;" class="btn primary-danger" (click)="onDelete(user?.id)">delete</button>
+            <button style="margin-right: 5px;" class="button" (click)="onDelete(user?.id)">
+              <fa-icon style="color:#C82333;" [icon]="delete" size="2x" ></fa-icon>
+            </button>
           </td>
         </tr>
       </tbody>

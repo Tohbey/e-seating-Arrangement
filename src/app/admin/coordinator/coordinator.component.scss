@@ -1,5 +1,6 @@
 
 @import '../../sass/others/component';
+@import '../../sass/variables';
 
 .row{
   display: grid;
@@ -8,3 +9,20 @@
   align-items: center;
 }
 
+.main{
+  margin-left: 7rem;
+
+  @media only screen and (max-width: $laptop-medium){
+    margin-left: 15rem;
+  }
+
+  @media only screen and (max-width: $laptop-small){
+    margin-left: 15rem;
+  }
+}
+
+.button{
+  outline: none;
+  border: none;
+  background: none;
+}
