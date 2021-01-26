@@ -34,8 +34,6 @@ export class LoginComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.screenSize = window.screen.width;
-    console.log(this.screenSize)
   }
 
   lecturerForm() {

@@ -20,7 +20,7 @@ export class UsersService {
 
   //get all users
   getAllUser():Observable<User>{
-    return this.http.get<User>(this.userUrl)
+    return this.http.get<User>(this.userUrl+"/lectures")
     .pipe(
       retry(1),
       catchError(this.handleError)

@@ -61,7 +61,6 @@ export class CoordinatorComponent implements OnInit {
     currentPage:1,
     totalItems:this.coordinators ? this.coordinators.length : 0
   };
-  console.log(this.paginationConfig)
   }
 
   get f(){
@@ -74,7 +73,6 @@ export class CoordinatorComponent implements OnInit {
         return;
       }
     this.coordinatorDetail = this.coordinatorsForm.value;
-    console.log(this.coordinatorDetail);
     this.coordinatorService.createCoordinator(this.coordinatorDetail).subscribe((data:{})=>{
       this.notifyService.showSuccess("Coordinator has been Created Successfully ",this.title)
       this.AllCoordinator()
@@ -96,7 +94,6 @@ export class CoordinatorComponent implements OnInit {
       return;
     }
     this.updatedDetail = this.coordinatorUpdate.value;
-    console.log(this.updatedDetail);
     this.coordinatorService.updateCoordinator(this.updatedDetail.id,this.updatedDetail).subscribe((data) => {
       this.notifyService.showSuccess("Coordinator has been Updated Successfully ",this.title)
       this.AllCoordinator();
@@ -112,7 +109,6 @@ export class CoordinatorComponent implements OnInit {
     let resp = this.coordinatorService.getAllCoordinators();
     resp.subscribe((data) => {
       this.coordinators = data;
-      console.log(this.coordinators)
     })
     return this.coordinators;
   }
@@ -125,14 +121,11 @@ export class CoordinatorComponent implements OnInit {
     let resp = this.hallService.getAllHallNames();
     resp.subscribe((data) => {
       this.hallNames = data;
-      console.log(this.hallNames)
     })
   }
 
   onDelete(id:String){
-    console.log(id);
     const value = window.confirm('Note: that deleting a coordinator would terminate the coordinator' + 'are you sure you want to delete? ');
-    console.log('Alert Response', value);
     if(value){
       this.coordinatorService.deleteCoordinator(id).subscribe(data => {
         this.AllCoordinator()
@@ -145,9 +138,7 @@ export class CoordinatorComponent implements OnInit {
 
   onEdit(id:string,coordinator:Coordinators){
     const value = window.confirm('are you sure you want to update Coordinaotor? ');
-    console.log('Alert Response', value);
     if(value){
-      console.log(id,coordinator)
       document.getElementById('updateCoordinator').style.display = 'block'
       document.getElementById('newCoordinator').style.display = 'none';
       this.coordinatorUpdate.patchValue({
