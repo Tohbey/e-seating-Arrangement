@@ -7,7 +7,7 @@
     <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th scope="col"> Hall id</th>
+            <th scope="col">No</th>
             <th scope="col">Hall Name</th>
             <th scope="col">Hall Size</th>
             <th scope="col">Department</th>
@@ -19,7 +19,7 @@
         </thead>
         <tbody>
           <tr *ngFor="let hall of halls | paginate:paginationConfig;let i= index">
-            <td class="table-text">{{hall?.hallId}}</td>
+            <td class="table-text">{{i+1}}</td>
             <td class="table-text">{{hall?.hallName}}</td>
             <td class="table-text">{{hall?.hallSize}}</td>
             <td class="table-text">{{hall?.department}}</td>
@@ -47,73 +47,66 @@
       <h5 class="header">Add new Coordinators</h5>
       <form [formGroup]="hallForm" (ngSubmit)="onSubmit()">
           <div class="contain-row">
-              <div class="col form-holder">
-                  <label for="hallId">hall id</label>
-                  <input formControlName="hallId" type="text" name="hallId" class="form-control" id="hallId" [ngClass]="{'is-invalid': submitted && f.hallId.errors}"/>
-                  <div *ngIf="f.hallId.errors" class="invalid-feedback">
-                      <div *ngIf="f.hallId.errors.required">hallId is required</div>
-                  </div>
-              </div>
               <div class="col order-1 form-holder">
-                  <label for="hallName">hall name</label>
+                  <label for="hallName">Hall Name</label>
                   <input formControlName="hallName" type="text" name="hallName" class="form-control" id="hallName" [ngClass]="{'is-invalid': submitted && f.hallName.errors}"/>
                   <div *ngIf="f.hallName.errors" class="invalid-feedback">
-                      <div *ngIf="f.hallName.errors.required">hallName is required</div>
+                      <div *ngIf="f.hallName.errors.required">Hall Name is required</div>
                   </div>
               </div>
               <div class="col order-12 form-holder">
-                  <label for="hallSize">hall size</label>
+                <label for="department">Department</label>
+                <input formControlName="department" type="text" name="department" class="form-control" id="department" [ngClass]="{'is-invalid': submitted && f.department.errors}"/>
+                <div *ngIf="f.department.errors" class="invalid-feedback">
+                    <div *ngIf="f.department.errors.required">Department is required</div>
+                </div>
+              </div>
+              <div class="col order-12 form-holder">
+                  <label for="hallSize">Hall Size</label>
                   <input formControlName="hallSize" type="text" name="hallSize" class="form-control" id="hallSize" [ngClass]="{'is-invalid': submitted && f.hallSize.errors}"/>
                   <div *ngIf="f.hallSize.errors" class="invalid-feedback">
-                      <div *ngIf="f.hallSize.errors.required">hallSize is required</div>
+                      <div *ngIf="f.hallSize.errors.required">Hall Size is required</div>
                   </div>
               </div>
-          </div>
-          <div class="contain-row">
-              <div class="col form-holder">
-                  <label for="department">Department</label>
-                  <input formControlName="department" type="text" name="department" class="form-control" id="department" [ngClass]="{'is-invalid': submitted && f.department.errors}"/>
-                  <div *ngIf="f.department.errors" class="invalid-feedback">
-                      <div *ngIf="f.department.errors.required">department is required</div>
-                  </div>
-              </div>
-              <div class="col order-12 form-holder">
-                  <label for="hallMainCoordinator">coordinator</label>
-                  <select formControlName="hallMainCoordinator" id="hallMainCoordinator" class="form-control" [ngClass]="{'is-invalid': submitted && f.hallMainCoordinator.errors}">
-                    <option selected>Choose...</option>
-                    <option *ngFor="let k of coordinatorNames" [ngValue]="k">{{k}}</option>
-                  </select>
-              </div>
-              <div class="col order-12 form-holder">
-                <label for="hallAssistanceCoordinator">Assistance Coordinator</label>
-                <select formControlName="hallAssistanceCoordinator" id="hallAssistanceCoordinator" class="form-control" [ngClass]="{'is-invalid': submitted && f.hallAssistanceCoordinator.errors}">
-                  <option selected>Choose...</option>
-                  <option *ngFor="let k of coordinatorNames" [ngValue]="k">{{k}}</option>
-                </select>
-            </div>
           </div>
           <div class="contain-row">
             <div class="col form-holder">
-                <label for="hallRow">Hall Row</label>
-                <input formControlName="hallRow" type="text" name="hallRow" class="form-control" id="hallRow" [ngClass]="{'is-invalid': submitted && f.hallRow.errors}"/>
-                <div *ngIf="f.hallRow.errors" class="invalid-feedback">
-                    <div *ngIf="f.hallRow.errors.required">hallRow is required</div>
-                </div>
+              <label for="hallRow">Hall Row</label>
+              <input formControlName="hallRow" type="text" name="hallRow" class="form-control" id="hallRow" [ngClass]="{'is-invalid': submitted && f.hallRow.errors}"/>
+              <div *ngIf="f.hallRow.errors" class="invalid-feedback">
+                  <div *ngIf="f.hallRow.errors.required">Hall Row is required</div>
+              </div>
             </div>
             <div class="col order-12 form-holder">
                 <label for="hallColumn">Hall Column</label>
                 <input formControlName="hallColumn" type="text" name="hallColumn" class="form-control" id="hallColumn" [ngClass]="{'is-invalid': submitted && f.hallColumn.errors}"/>
                 <div *ngIf="f.hallColumn.errors" class="invalid-feedback">
-                  <div *ngIf="f.hallColumn.errors.required">hallColumn is required</div>
+                  <div *ngIf="f.hallColumn.errors.required">Hall Column is required</div>
                 </div>
             </div>
             <div class="col order-12 form-holder">
               <label for="rowSection">Row Section</label>
               <input formControlName="rowSection" type="text" name="rowSection" class="form-control" id="rowSection" [ngClass]="{'is-invalid': submitted && f.rowSection.errors}"/>
               <div *ngIf="f.rowSection.errors" class="invalid-feedback">
-                <div *ngIf="f.rowSection.errors.required">rowSection is required</div>
+                <div *ngIf="f.rowSection.errors.required">Section is required</div>
               </div>
+            </div>
           </div>
+          <div class="contain-row">
+            <div class="col form-holder">
+              <label for="hallMainCoordinator">Coordinator</label>
+              <select formControlName="hallMainCoordinator" id="hallMainCoordinator" class="form-control" [ngClass]="{'is-invalid': submitted && f.hallMainCoordinator.errors}">
+                <option selected>Choose...</option>
+                <option *ngFor="let k of coordinatorNames" [ngValue]="k">{{k}}</option>
+              </select>
+            </div>
+            <div class="col order-12 form-holder">
+              <label for="hallAssistanceCoordinator" style="width: 200px;">Assistant Coordinator</label>
+              <select formControlName="hallAssistanceCoordinator" id="hallAssistanceCoordinator" class="form-control" [ngClass]="{'is-invalid': submitted && f.hallAssistanceCoordinator.errors}">
+                <option selected>Choose...</option>
+                <option *ngFor="let k of coordinatorNames" [ngValue]="k">{{k}}</option>
+              </select>
+            </div>
         </div>
         <button style="float: right;" class="btn secondary-button">Add</button>
       </form>
@@ -124,75 +117,68 @@
       <h5 class="header">Update Hall</h5>
       <form [formGroup]="hallUpdate" (ngSubmit)="onUpdate()">
           <div class="contain-row">
-              <div class="col form-holder">
-                  <label for="hallId">hall id</label>
-                  <input formControlName="hallId" type="text" name="hallId" class="form-control" id="hallId" [ngClass]="{'is-invalid': submitted && g.hallId.errors}"/>
-                  <div *ngIf="g.hallId.errors" class="invalid-feedback">
-                      <div *ngIf="g.hallId.errors.required">hallId is required</div>
-                  </div>
-              </div>
               <div class="col order-1 form-holder">
-                  <label for="hallName">hall name</label>
+                  <label for="hallName">Hall Name</label>
                   <input formControlName="hallName" type="text" name="hallName" class="form-control" id="hallName" [ngClass]="{'is-invalid': submitted && g.hallName.errors}"/>
                   <div *ngIf="g.hallName.errors" class="invalid-feedback">
-                      <div *ngIf="g.hallName.errors.required">hallName is required</div>
+                      <div *ngIf="g.hallName.errors.required">Hall Name is required</div>
                   </div>
               </div>
               <div class="col order-12 form-holder">
-                  <label for="hallSize">hall size</label>
+                <label for="department">Department</label>
+                <input formControlName="department" type="text" name="department" class="form-control" id="department" [ngClass]="{'is-invalid': submitted && g.department.errors}"/>
+                <div *ngIf="g.department.errors" class="invalid-feedback">
+                    <div *ngIf="g.department.errors.required">department is required</div>
+                </div>
+            </div>
+              <div class="col order-12 form-holder">
+                  <label for="hallSize">Hall Size</label>
                   <input formControlName="hallSize" type="text" name="hallSize" class="form-control" id="hallSize" [ngClass]="{'is-invalid': submitted && g.hallSize.errors}"/>
                   <div *ngIf="g.hallSize.errors" class="invalid-feedback">
-                      <div *ngIf="g.hallSize.errors.required">hallSize is required</div>
+                      <div *ngIf="g.hallSize.errors.required">Hall Size is required</div>
                   </div>
               </div>
           </div>
           <div class="contain-row">
-              <div class="col form-holder">
-                  <label for="department">Department</label>
-                  <input formControlName="department" type="text" name="department" class="form-control" id="department" [ngClass]="{'is-invalid': submitted && g.department.errors}"/>
-                  <div *ngIf="g.department.errors" class="invalid-feedback">
-                      <div *ngIf="g.department.errors.required">department is required</div>
-                  </div>
+            <div class="col form-holder">
+              <label for="hallRow">Hall Row</label>
+              <input formControlName="hallRow" type="text" name="hallRow" class="form-control" id="hallRow" [ngClass]="{'is-invalid': submitted && g.hallRow.errors}"/>
+              <div *ngIf="g.hallRow.errors" class="invalid-feedback">
+                  <div *ngIf="g.hallRow.errors.required">Hall Row is required</div>
               </div>
-              <div class="col order-12 form-holder">
-                <label for="hallMainCoordinator">coordinator</label>
-                <select formControlName="hallMainCoordinator" id="hallMainCoordinator" class="form-control" [ngClass]="{'is-invalid': submitted && g.hallMainCoordinator.errors}">
-                  <option selected>Choose...</option>
-                  <option *ngFor="let k of coordinatorNames" [ngValue]="k">{{k}}</option>
-                </select>
+              </div>
+            <div class="col order-12 form-holder">
+              <label for="hallColumn">Hall Column</label>
+              <input formControlName="hallColumn" type="text" name="hallColumn" class="form-control" id="hallColumn" [ngClass]="{'is-invalid': submitted && g.hallColumn.errors}"/>
+              <div *ngIf="g.hallColumn.errors" class="invalid-feedback">
+                <div *ngIf="g.hallColumn.errors.required">Hall Column is required</div>
+              </div>
             </div>
             <div class="col order-12 form-holder">
-              <label for="hallAssistanceCoordinator">Assistance Coordinator</label>
-              <select formControlName="hallAssistanceCoordinator" id="hallAssistanceCoordinator" class="form-control" [ngClass]="{'is-invalid': submitted && g.hallAssistanceCoordinator.errors}">
-                <option selected>Choose...</option>
-                <option *ngFor="let k of coordinatorNames" [ngValue]="k">{{k}}</option>
-              </select>
+              <label for="rowSection">Row Section</label>
+              <input formControlName="rowSection" type="text" name="rowSection" class="form-control" id="rowSection" [ngClass]="{'is-invalid': submitted && g.rowSection.errors}"/>
+              <div *ngIf="g.rowSection.errors" class="invalid-feedback">
+                <div *ngIf="g.rowSection.errors.required">Section is required</div>
+              </div>
+            </div>
           </div>
-        </div>
         <div class="contain-row">
-          <div class="col form-holder">
-            <label for="hallRow">Hall Row</label>
-            <input formControlName="hallRow" type="text" name="hallRow" class="form-control" id="hallRow" [ngClass]="{'is-invalid': submitted && g.hallRow.errors}"/>
-            <div *ngIf="g.hallRow.errors" class="invalid-feedback">
-                <div *ngIf="g.hallRow.errors.required">hallRow is required</div>
-            </div>
-            </div>
           <div class="col order-12 form-holder">
-            <label for="hallColumn">Hall Column</label>
-            <input formControlName="hallColumn" type="text" name="hallColumn" class="form-control" id="hallColumn" [ngClass]="{'is-invalid': submitted && g.hallColumn.errors}"/>
-            <div *ngIf="g.hallColumn.errors" class="invalid-feedback">
-              <div *ngIf="g.hallColumn.errors.required">hallColumn is required</div>
-            </div>
+            <label for="hallMainCoordinator">Coordinator</label>
+            <select formControlName="hallMainCoordinator" id="hallMainCoordinator" class="form-control" [ngClass]="{'is-invalid': submitted && g.hallMainCoordinator.errors}">
+              <option selected>Choose...</option>
+              <option *ngFor="let k of coordinatorNames" [ngValue]="k">{{k}}</option>
+            </select>
           </div>
           <div class="col order-12 form-holder">
-            <label for="rowSection">Row Section</label>
-            <input formControlName="rowSection" type="text" name="rowSection" class="form-control" id="rowSection" [ngClass]="{'is-invalid': submitted && g.rowSection.errors}"/>
-            <div *ngIf="g.rowSection.errors" class="invalid-feedback">
-              <div *ngIf="g.rowSection.errors.required">rowSection is required</div>
-            </div>
+            <label for="hallAssistanceCoordinator" style="width: 200px;">Assistant Coordinator</label>
+            <select formControlName="hallAssistanceCoordinator" id="hallAssistanceCoordinator" class="form-control" [ngClass]="{'is-invalid': submitted && g.hallAssistanceCoordinator.errors}">
+              <option selected>Choose...</option>
+              <option *ngFor="let k of coordinatorNames" [ngValue]="k">{{k}}</option>
+            </select>
           </div>
         </div>
-          <button style="float: right;" class="btn btn-success">Update</button>
+          <button style="float: right;" class="btn primary-success">Update</button>
       </form>
     </div>
   </div>
@@ -208,7 +194,7 @@
               <option *ngFor="let k of hallNames" [ngValue]="k">{{k}}</option>
             </select>
             <div *ngIf="h.hallName.errors" class="invalid-feedback">
-              <div *ngIf="h.hallName.errors.required">hallAssistanceCoordinator is required</div>
+              <div *ngIf="h.hallName.errors.required">Hall Name is required</div>
             </div>
           </div>
           <div class="col order-12" style="padding-top: 26px;">
@@ -223,10 +209,6 @@
       <h5 class="header">Hall Details</h5>
       <div class="contain-row-1">
         <div class="col">
-          <p class="col--header">Hall Id</p>
-          <p class="col--body">{{hallView?.hallId}}</p>
-        </div>
-        <div class="col">
           <p class="col--header">Hall Name</p>
           <p class="col--body">{{hallView?.hallName}}</p>
         </div>
@@ -235,19 +217,25 @@
           <p class="col--body">{{hallView?.department}}</p>
         </div>
         <div class="col">
-          <p class="col--header">Main Coordinator</p>
-          <p class="col--body">{{hallView?.hallMainCoordinator}}</p>
-        </div>
-        <div class="col">
-          <p class="col--header">Assistance Coordinator</p>
-          <p class="col--body">{{hallView?.hallAssistanceCoordinator}}</p>
+          <p class="col--header">Hall Size</p>
+          <p class="col--body">{{hallView?.hallSize}}</p>
         </div>
       </div>
       <div class="contain-row-1" style="margin-top: 15px;">
         <div class="col">
+          <p class="col--header">Main Coordinator</p>
+          <p class="col--body">{{hallView?.hallMainCoordinator}}</p>
+        </div>
+        <div class="col">
+          <p class="col--header">Assistant Coordinator</p>
+          <p class="col--body">{{hallView?.hallAssistanceCoordinator}}</p>
+        </div>
+        <div class="col">
           <p class="col--header">Hall Size</p>
           <p class="col--body">{{hallView?.hallSize}}</p>
         </div>
+      </div>
+      <div class="contain-row-1" style="margin-top: 15px;">
         <div class="col">
           <p class="col--header">Hall Row</p>
           <p class="col--body">{{hallView?.hallRow}}</p>
@@ -260,6 +248,8 @@
           <p class="col--header">Row section</p>
           <p class="col--body">{{hallView?.rowSection}}</p>
         </div>
+      </div>
+      <div class="contain-row-1" style="margin-top: 15px;">
         <div class="col">
           <p class="col--header">Allocated Seats</p>
           <p class="col--body">{{hallView?.allocatedSize}}</p>

@@ -32,19 +32,16 @@ export class CoordinatorComponent implements OnInit {
   ngOnInit(): void {
     this.coordinatorsForm = this.formBuilder.group({
       id:[''],
-      coordinatorId: ['',Validators.required],
       coordinatorSurname:  ['',Validators.required],
       coordinatorOtherName:  ['',Validators.required],
       coordinatorEmail:  ['',Validators.required],
       coordinatorDepartment:  ['',Validators.required],
-      hallName:  [''],
       faculty: ['',Validators.required],
       coordinatorPhoneNumber: ['',Validators.required],
       coordinatorFullName:[''],
     });
     this.coordinatorUpdate = this.formBuilder.group({
       id:[''],
-      coordinatorId: ['',Validators.required],
       coordinatorSurname:  ['',Validators.required],
       coordinatorOtherName:  ['',Validators.required],
       coordinatorEmail:  ['',Validators.required],

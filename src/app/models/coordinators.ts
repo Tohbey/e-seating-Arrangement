@@ -1,6 +1,5 @@
 export class Coordinators{
     id:number
-    coordinatorId:number;
     coordinatorSurname:String;
     coordinatorOtherName:String;
     coordinatorFullName:String;

@@ -3,7 +3,6 @@ import { ExamSession } from './examSession';
 
 export class Hall{
   id:number
-  hallId:number;
   hallName:string;
   hallSize:number;
   department:String;
@@ -12,6 +11,7 @@ export class Hall{
   hallMainCoordinator:String;
   hallAssistanceCoordinator:String;
   rowSection:number;
+  faculty:String;
   hallSessions:ExamSession[];
   allocatedSize:number;
 }

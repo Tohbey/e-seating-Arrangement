@@ -39,19 +39,18 @@ export class HallComponent implements OnInit {
 
   ngOnInit(): void {
     this.hallForm = this.formBuilder.group({
-      hallId:['',Validators.required],
       hallName:['',Validators.required],
       hallSize:['',Validators.required],
       hallRow:['',Validators.required],
       hallColumn:['',Validators.required],
       rowSection:['',Validators.required],
       department:['',Validators.required],
+      faculty:['Engineering'],
       hallMainCoordinator:[''],
       hallAssistanceCoordinator:[''],
     })
     this.hallUpdate = this.formBuilder.group({
       id:[''],
-      hallId:['',Validators.required],
       hallName:['',Validators.required],
       hallSize:['',Validators.required],
       hallRow:['',Validators.required],
@@ -59,6 +58,7 @@ export class HallComponent implements OnInit {
       rowSection:['',Validators.required],
       department:['',Validators.required],
       hallMainCoordinator:[''],
+      faculty:['Engineering'],
       hallAssistanceCoordinator:[''],
     })
     this.HallNameForm = this.formBuilder.group({
@@ -84,6 +84,7 @@ export class HallComponent implements OnInit {
       return;
     }
     this.hallDetail = this.hallForm.value;
+    this.hallDetail.faculty = "Engineering";
     console.log(this.hallDetail);
     this.hallService.createHall(this.hallDetail).subscribe((data)=>{
       this.AllHall()
@@ -105,6 +106,7 @@ export class HallComponent implements OnInit {
       return;
     }
     this.hallUpdateValue = this.hallUpdate.value;
+    this.hallUpdateValue.faculty = "Engineering";
     console.log(this.hallUpdateValue);
     this.hallService.updateHall(this.hallUpdateValue.id,this.hallUpdateValue).subscribe((data) => {
       this.notifyService.showSuccess("Hall has been Updated Successfully "+this.hallUpdateValue.hallName,this.title)
