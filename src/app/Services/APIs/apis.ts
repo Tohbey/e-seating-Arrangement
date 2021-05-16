@@ -1,5 +1,5 @@
 export class APIs {
-  public static generalUrl = 'http://localhost:8080';
+  public static generalUrl = 'https://eseating-arrangement.herokuapp.com';
 
   public static loginUrl = APIs.generalUrl+"/basicauth";
 
