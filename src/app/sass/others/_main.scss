@@ -64,7 +64,7 @@ body {
   display: grid;
   width:100%;
   grid-template-rows: [top-start] 6rem [top-end main-start] 1fr [main-end];
-  grid-template-columns: repeat(12, minmax(min-content,14rem));
+  grid-template-columns: repeat(12, minmax(min-content,12rem));
 }
 
 .navigation{
@@ -82,7 +82,7 @@ body {
 }
 
 .main-part{
-  grid-column: 5/13;
+  grid-column: 4/13;
   grid-row: main-start/main-end;
   margin:4rem;
   margin-left: -3px;

@@ -1,6 +1,18 @@
 @import '../../sass/others/component';
 @import '../../sass/others/main';
 
+.container{
+  margin-left: 1rem;
+
+  @media only screen and (max-width: $laptop-medium){
+    margin-left: 15rem;
+  }
+
+  @media only screen and (max-width: $laptop-small){
+    margin-left: 15rem;
+  }
+}
+
 .contain{
   padding: 15px;
   background-color: white;

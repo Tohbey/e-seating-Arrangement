@@ -1,4 +1,4 @@
-<div>
+<div class="container">
   <h4 class="header-big">Work-Post</h4>
   <div>
     <h5 class="header-small">Hall Details</h5>
@@ -49,7 +49,7 @@
     <p class="col--body">Seats: Total Number of Seat avaialble {{hallDetails?.allocatedSize}}</p>
     <div style="margin-top: 20px;">
       <h6 class="header-small">Examination Sessions</h6>
-      <ng-container *ngFor="let session of hallDetails?.hallSessions;let i of index">
+      <ng-container *ngFor="let session of hallDetails?.hallSessions;let i = index">
         <div class="accordion" id="accordionExample">
           <div class="card">
             <div class="card-header" id="headingOne">

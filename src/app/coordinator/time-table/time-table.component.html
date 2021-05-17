@@ -1,9 +1,9 @@
-<div style="margin-left:  -13rem;">
+<div>
   <div style="float: right;">
     <p class="table-text">{{day?.day}}</p>
   </div>
   <h2>Exam Time-table</h2>
-  <div *ngFor="let examWeek of examWeeks;let i of index">
+  <div *ngFor="let examWeek of examWeeks;let i">
     <div id="table">
       <h3>Week {{i}}</h3>
       <hr style="border: 2px solid #707070;width: 100%;margin: auto;"/>
