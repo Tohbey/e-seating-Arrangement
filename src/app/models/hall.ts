@@ -12,6 +12,7 @@ export class Hall{
   hallAssistanceCoordinator:String;
   rowSection:number;
   faculty:String;
+  model:String;
   hallSessions:ExamSession[];
   allocatedSize:number;
 }

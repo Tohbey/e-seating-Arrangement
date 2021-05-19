@@ -14,6 +14,7 @@
             <th scope="col">Allocated Size</th>
             <th scope="col">Coordinator</th>
             <th scope="col">Asst. Coordinator</th>
+            <th scope="col">Mode</th>
             <th scope="col">Action</th>
           </tr>
         </thead>
@@ -26,6 +27,7 @@
             <td class="table-text">{{hall?.allocatedSize}}</td>
             <td class="table-text">{{hall?.hallMainCoordinator}}</td>
             <td class="table-text">{{hall?.hallAssistanceCoordinator}}</td>
+            <td class="table-text">{{hall?.mode}}</td>
               <td>
                   <button (click)="onDelete(hall?.id)"  style="margin-right: 5px;" class="button">
                     <fa-icon style="color:#C82333;" [icon]="delete" size="2x" ></fa-icon>
@@ -198,6 +200,20 @@
             </div>
           </div>
           <div class="col order-12" style="padding-top: 26px;">
+            <div class="col form-holder">
+              <label for="hallName">Seating Mode</label>
+              <div class="radio-container">
+                <input type="radio" value="Regular Seating" class="radio" name="mode" formControlName="mode" id="mode" [ngClass]="{'is-invalid': submitted && h.mode.errors}">
+                <p>Regular Seating</p>
+              </div>
+              <div class="radio-container">
+                <input type="radio" value="Covid-19 Regulation" class="radio" name="mode" formControlName="mode" id="mode" [ngClass]="{'is-invalid': submitted && h.mode.errors}">
+                <p>Covid-19 Regulation</p>
+              </div>
+              <div *ngIf="h.mode.errors" class="invalid-feedback">
+                <div *ngIf="h.mode.errors.required">Mode is required</div>
+              </div>
+            </div>
           </div>
         </div>
         <button class="btn primary-button" (click)="generateSeat()">Generate Seats</button>

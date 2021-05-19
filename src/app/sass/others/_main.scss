@@ -64,7 +64,7 @@ body {
   display: grid;
   width:100%;
   grid-template-rows: [top-start] 6rem [top-end main-start] 1fr [main-end];
-  grid-template-columns: repeat(12, minmax(min-content,12rem));
+  grid-template-columns: repeat(13, minmax(min-content,12rem));
 }
 
 .navigation{
@@ -105,7 +105,7 @@ body {
 }
 
 .toolbar{
-  grid-column: 1/13;
+  grid-column: 1/-1;
   grid-row: top-start/top-end;
   background-color: $color-white;
   box-shadow: 0px 1px 10px #00000029 ;

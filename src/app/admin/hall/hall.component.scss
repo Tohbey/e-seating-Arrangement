@@ -50,3 +50,16 @@
   }
 }
 
+.radio-container{
+  display: flex;
+  flex-direction: row-reverse;
+  align-items: center;
+  width: 128px;
+  justify-content: space-between;
+}
+
+.radio{
+  width: 20px !important;
+  height: 34px !important;
+
+}

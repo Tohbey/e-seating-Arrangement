@@ -86,8 +86,8 @@ export class HallService {
     }
 
     //generate seats
-    generateExamSessions(hallName):Observable<ExamSession>{
-        return this.http.get<ExamSession>(this.hallUrl+"/generateSessions/"+hallName)
+    generateExamSessions(hallName, mode):Observable<ExamSession>{
+        return this.http.get<ExamSession>(this.hallUrl+"/generateSessions/"+hallName+"-"+mode)
         .pipe(
           retry(1),
           catchError(this.handleError)

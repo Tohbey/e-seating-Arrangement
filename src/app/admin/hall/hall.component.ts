@@ -62,7 +62,8 @@ export class HallComponent implements OnInit {
       hallAssistanceCoordinator:[''],
     })
     this.HallNameForm = this.formBuilder.group({
-      hallName:['',Validators.required]
+      hallName:['',Validators.required],
+      mode:['', Validators.required]
     })
     this.AllHall();
     this.AllCoordinatorNames();
@@ -126,7 +127,9 @@ export class HallComponent implements OnInit {
   generateSeat(){
     let hallName = this.HallNameForm.get('hallName').value;
     console.log(hallName)
-    let resp = this.hallService.generateExamSessions(hallName);
+    let mode = this.HallNameForm.get("mode").value;
+    console.log(hallName, mode)
+    let resp = this.hallService.generateExamSessions(hallName, mode);
     resp.subscribe((data) => {
       this.session.push(data);
       this.notifyService.showSuccess("Seats has been generated "+this.session[0].seats.length,"Project-Demo")
