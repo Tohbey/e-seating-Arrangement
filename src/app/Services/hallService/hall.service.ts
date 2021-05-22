@@ -7,6 +7,8 @@ import { ExamSeat } from 'src/app/models/examSeat';
 import { Student } from 'src/app/models/student';
 import { ExamSession } from 'src/app/models/examSession';
 import { APIs } from '../APIs/apis';
+import { Mode } from 'src/app/models/mode';
+import { Programme } from 'src/app/models/programme';
 
 @Injectable({
   providedIn: 'root'
@@ -86,8 +88,9 @@ export class HallService {
     }
 
     //generate seats
-    generateExamSessions(hallName, mode):Observable<ExamSession>{
-        return this.http.get<ExamSession>(this.hallUrl+"/generateSessions/"+hallName+"-"+mode)
+    generateExamSessions(hallName, mode:Mode):Observable<ExamSession>{
+        return this.http.post<ExamSession>(
+          this.hallUrl+"/generateSessions/"+hallName, mode)
         .pipe(
           retry(1),
           catchError(this.handleError)
@@ -112,7 +115,16 @@ export class HallService {
         catchError(this.handleError)
       )
     }
-  //Error Handling
+
+    getSeatsPerProgramme():Observable<Programme>{
+      return this.http.get<Programme>(this.hallUrl+"/seatSize")
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      )
+    }
+
+    //Error Handling
   handleError(error){
     let errorMessage="";
     if(error.error instanceof ErrorEvent){

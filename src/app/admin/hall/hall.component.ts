@@ -6,6 +6,8 @@ import { CoordinatorService } from 'src/app/Services/coordinatorService/coordina
 import { HallService } from 'src/app/Services/hallService/hall.service';
 import { NotificationService } from 'src/app/Services/notification/notification.service';
 import { faTrash, faPen,faEye} from '@fortawesome/free-solid-svg-icons'
+import { Mode } from 'src/app/models/mode';
+import { Programme } from 'src/app/models/programme';
 
 @Component({
   selector: 'app-hall',
@@ -27,10 +29,12 @@ export class HallComponent implements OnInit {
   submitted = false;
   coordinatorNames:String[];
   hallNames:String[]
+  mode:Mode;
   session:ExamSession[]=[];
   title="e-Seating Arrangemnt";
   itemsPerPage:any = 5;
   paginationConfig:any= {};
+  programmeObject:Programme
 
   constructor(private formBuilder:FormBuilder,
     private hallService:HallService,
@@ -74,6 +78,7 @@ export class HallComponent implements OnInit {
       totalItems:this.halls ? this.halls.length : 0
     };
     console.log(this.paginationConfig)
+    this.getTotal();
   }
   get f(){
     return this.hallForm.controls
@@ -126,13 +131,15 @@ export class HallComponent implements OnInit {
 
   generateSeat(){
     let hallName = this.HallNameForm.get('hallName').value;
-    console.log(hallName)
-    let mode = this.HallNameForm.get("mode").value;
-    console.log(hallName, mode)
-    let resp = this.hallService.generateExamSessions(hallName, mode);
+    this.mode = {
+      mode: this.HallNameForm.get('mode').value
+    }
+
+    console.log(hallName, this.mode)
+    let resp = this.hallService.generateExamSessions(hallName, this.mode);
     resp.subscribe((data) => {
       this.session.push(data);
-      this.notifyService.showSuccess("Seats has been generated "+this.session[0].seats.length,"Project-Demo")
+      this.notifyService.showSuccess("Seats has been generated "+this.session[0].seats.length,this.title)
       this.AllHall();
     })
 
@@ -144,7 +151,7 @@ export class HallComponent implements OnInit {
     document.getElementById('newHall').style.display = 'none';
     document.getElementById('updateHall').style.display ='none';
     document.getElementById('view').style.display ='none';
-
+    document.getElementById('seatsPerProgramme').style.display ='none'
   }
 
   AllHall(){
@@ -227,5 +234,21 @@ export class HallComponent implements OnInit {
       this.hallNames = data
       console.log(this.hallNames)
     })
+  }
+
+  getTotal(){
+    let resp = this.hallService.getSeatsPerProgramme();
+    resp.subscribe((data) => {
+      this.programmeObject = data
+      console.log("break down ",this.programmeObject)
+    })
+  }
+
+  onShow(){
+    document.getElementById('generate').style.display = 'none'
+    document.getElementById('newHall').style.display = 'none';
+    document.getElementById('updateHall').style.display ='none';
+    document.getElementById('view').style.display ='none';
+    document.getElementById('seatsPerProgramme').style.display ='block'
   }
 }

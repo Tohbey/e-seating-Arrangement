@@ -1,7 +1,8 @@
 <div class="main">
   <div style="padding-bottom: 10px;">
     <button class="btn primary-button" (click)="addHall()" style="margin-right: 8px;">Add Hall</button>
-    <button class="btn primary-button" (click)="onDIsplay()">Generate Seats</button>
+    <button class="btn primary-button" (click)="onDIsplay()" style="margin-right: 8px;">Generate Seats</button>
+    <button class="btn primary-button" (click)="onShow()">Seats Per Programme</button>
   </div>
   <div style="padding-bottom: 5px;">
     <table class="table">
@@ -272,5 +273,23 @@
         </div>
       </div>
     </div>
+  </div>
+  <div id="seatsPerProgramme" style="display: none">
+    <table class="table">
+      <thead class="thead-dark">
+        <tr>
+          <th scope="col">No</th>
+          <th scope="col">Programme</th>
+          <th scope="col">No of Seats Generated</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let programme of programmeObject; let i= index">
+          <td class="table-text">{{i+1}}</td>
+          <td class="table-text">{{programme?.programme}}</td>
+          <td class="table-text">{{programme?.total}}</td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </div>

@@ -64,7 +64,7 @@ body {
   display: grid;
   width:100%;
   grid-template-rows: [top-start] 6rem [top-end main-start] 1fr [main-end];
-  grid-template-columns: repeat(13, minmax(min-content,12rem));
+  grid-template-columns: repeat(12, minmax(min-content,12rem));
 }
 
 .navigation{
