@@ -12,7 +12,7 @@ import { WrongRouteComponent } from './wrong-route/wrong-route.component';
 const routes: Routes = [
   {path:'',pathMatch:'full',redirectTo:''},
   {path: '',
-    loadChildren: './home/home.module#HomeModule'
+    loadChildren: () => import('./home/home.module').then(m => m.HomeModule)
   },
   {
     path: 'admin',
@@ -20,7 +20,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: './admin/admin.module#AdminModule'
+        loadChildren: () => import('./admin/admin.module').then(m => m.AdminModule)
       }
     ]
   },
@@ -30,7 +30,7 @@ const routes: Routes = [
     children: [
       {
         path: '',
-        loadChildren: './coordinator/coordinator.module#CoordinatorModule'
+        loadChildren: () => import('./coordinator/coordinator.module').then(m => m.CoordinatorModule)
       }
     ]
   },
@@ -40,7 +40,7 @@ const routes: Routes = [
       children: [
         {
           path: '',
-          loadChildren: './student/student.module#StudentModule'
+          loadChildren: () => import('./student/student.module').then(m => m.StudentModule)
         }
       ]
   },
@@ -52,7 +52,7 @@ const routes: Routes = [
   imports: [
     CommonModule,
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes, { relativeLinkResolution: 'legacy' })
   ],
   exports: [RouterModule]
 })

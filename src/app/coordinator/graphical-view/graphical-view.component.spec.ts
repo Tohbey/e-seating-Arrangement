@@ -1,4 +1,4 @@
-import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { GraphicalViewComponent } from './graphical-view.component';
 
@@ -6,7 +6,7 @@ describe('GraphicalViewComponent', () => {
   let component: GraphicalViewComponent;
   let fixture: ComponentFixture<GraphicalViewComponent>;
 
-  beforeEach(async(() => {
+  beforeEach(waitForAsync(() => {
     TestBed.configureTestingModule({
       declarations: [ GraphicalViewComponent ]
     })
