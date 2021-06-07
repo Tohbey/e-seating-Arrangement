@@ -25,6 +25,7 @@ export class UserAccessComponent implements OnInit {
   userDetail:any;
   itemPerPage:any = 10;
   paginationConfig:any = {};
+  isloading = true
   constructor(private userService:UsersService,
     private formBuilder:FormBuilder,
     private coordinatorService:CoordinatorService) { }
@@ -142,6 +143,7 @@ export class UserAccessComponent implements OnInit {
     let resp = this.userService.getAllUser();
     resp.subscribe((data) => {
       this.users = data;
+      this.isloading = false;
       console.log(this.users)
     })
     return this.users;

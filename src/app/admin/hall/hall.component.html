@@ -43,6 +43,7 @@
         </tr>
         </tbody>
     </table>
+    <ngx-skeleton-loader count="{{itemsPerPage}}" appearance="line" *ngIf="isloading"></ngx-skeleton-loader>
     <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
   </div>
   <div id="newHall" style="display: none;">

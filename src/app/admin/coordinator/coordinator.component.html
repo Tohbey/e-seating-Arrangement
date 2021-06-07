@@ -36,6 +36,7 @@
             </tr>
           </tbody>
       </table>
+      <ngx-skeleton-loader count="{{itemPerPage}}" appearance="line" *ngIf="isloading"></ngx-skeleton-loader>
       <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
   </div>
   <div id="newCoordinator" style="display: none;">

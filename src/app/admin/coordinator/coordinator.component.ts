@@ -28,6 +28,8 @@ export class CoordinatorComponent implements OnInit {
   title="e-Seating Arrangemnt";
   delete = faTrash
   edit = faPen
+  isloading:Boolean = true;
+
 
   ngOnInit(): void {
     this.coordinatorsForm = this.formBuilder.group({
@@ -106,6 +108,7 @@ export class CoordinatorComponent implements OnInit {
     let resp = this.coordinatorService.getAllCoordinators();
     resp.subscribe((data) => {
       this.coordinators = data;
+      this.isloading = false
     })
     return this.coordinators;
   }

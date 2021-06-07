@@ -1,5 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,10 +16,14 @@ import { CoordinatorModule } from './coordinator/coordinator.module';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { WrongRouteComponent } from './wrong-route/wrong-route.component';
+import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
 @NgModule({
   declarations: [
     AppComponent,
     WrongRouteComponent
+  ],
+  exports:[
+    NgxSkeletonLoaderModule
   ],
   imports: [
     BrowserModule,
@@ -34,11 +38,13 @@ import { WrongRouteComponent } from './wrong-route/wrong-route.component';
     BrowserAnimationsModule,
     NgxPaginationModule,
     FontAwesomeModule,
+    NgxSkeletonLoaderModule.forRoot(),
     ToastrModule.forRoot()
   ],
   providers: [{
     provide:HTTP_INTERCEPTORS, useClass: HttpIntercepterService, multi:true
   }],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class AppModule { }

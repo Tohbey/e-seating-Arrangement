@@ -34,7 +34,9 @@ export class HallComponent implements OnInit {
   title="e-Seating Arrangemnt";
   itemsPerPage:any = 5;
   paginationConfig:any= {};
-  programmeObject:Programme
+  programmeObject:Programme;
+  isloading:Boolean = true;
+
 
   constructor(private formBuilder:FormBuilder,
     private hallService:HallService,
@@ -93,6 +95,7 @@ export class HallComponent implements OnInit {
     this.hallDetail.faculty = "Engineering";
     console.log(this.hallDetail);
     this.hallService.createHall(this.hallDetail).subscribe((data)=>{
+      this.notifyService.showSuccess("Hall Created",this.title)
       this.AllHall()
     })
     this.hallForm.reset();
@@ -157,6 +160,7 @@ export class HallComponent implements OnInit {
   AllHall(){
     let resp = this.hallService.getAllHall();
     resp.subscribe((data) => {
+      this.isloading = false;
       this.halls = data;
       console.log(this.halls)
     })
