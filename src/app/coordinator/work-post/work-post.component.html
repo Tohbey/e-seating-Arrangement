@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container-main">
   <h4 class="header-big">Work-Post</h4>
   <div>
     <h5 class="header-small">Hall Details</h5>
@@ -82,6 +82,7 @@
                     </tr>
                   </tbody>
               </table>
+              <ngx-skeleton-loader count="{{itemPerPage}}" appearance="line" *ngIf="isloading"></ngx-skeleton-loader>
               <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
                 <div style="float: right;margin-bottom: 20px;margin-right: 20px;">
                   <button class="btn primary-button" (click)="openPage('coordinator/attentance',session?.sessionType)" style="margin-right:15px">Print Attendance</button>

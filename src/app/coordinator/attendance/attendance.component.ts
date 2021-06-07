@@ -19,6 +19,8 @@ export class AttendanceComponent implements OnInit {
   hallDetails:Hall;
   hallSize;
   seatsBySection:ExamSession;
+  isloading = true;
+  itemPerPage = 15;
 
 
   constructor(
@@ -60,6 +62,7 @@ export class AttendanceComponent implements OnInit {
     let resp = this.hallService.getExamSessions(hallName,sessionType);
     resp.subscribe((data) => {
       this.seatsBySection = data
+      this.isloading = false;
       console.log(this.seatsBySection)
     })
   }

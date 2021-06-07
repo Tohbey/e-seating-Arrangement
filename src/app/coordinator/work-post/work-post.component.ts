@@ -21,6 +21,7 @@ export class WorkPostComponent implements OnInit {
   seatsBySection:ExamSeat[];
   itemPerPage:any = 10;
   paginationConfig:any = {};
+  isloading = true;
 
   constructor(
     private hallService:HallService,
@@ -73,6 +74,7 @@ export class WorkPostComponent implements OnInit {
     let resp = this.hallService.getHallByHallName(hallName);
     resp.subscribe((data) => {
       this.hallDetails = data;
+      this.isloading = false;
       console.log(this.hallDetails)
     })
     return this.hallDetails

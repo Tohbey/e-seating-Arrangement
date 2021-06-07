@@ -16,9 +16,10 @@ export class StudentListComponent implements OnInit {
 
   coordinatorDetail:Coordinators
   hallDetails:Hall;
+  isloading = true;
   hallSize;
   students;
-
+  itemPerPage = 15
   constructor(
     private hallService:HallService,
     private studentService:StudentService,
@@ -58,6 +59,7 @@ export class StudentListComponent implements OnInit {
     let resp = this.hallService.fetchStudent(hallName,sessionType);
     resp.subscribe((data) => {
       this.students = data;
+      this.isloading = false;
       console.log(this.students)
     })
     return this.students
