@@ -3,30 +3,46 @@
     <div>
       <div style="margin-bottom: 20px;">
         <h5>{{examDate}}</h5>
-        <button class="btn btn-primary" (click)="getTable(i)">View Table</button>
+        <button class="btn btn-primary" (click)="getTable(examDate)">View Table</button>
       </div>
-      <ng-container *ngIf="showTable[i]">
+      <div *ngIf="showTable[i]" style="display: flex;">
           <table class="table" style="text-align: center;">
             <thead class="thead-dark">
               <tr>
                 <th scope="col">9:00am-12:00noon</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let exam of exams[i].morningPaper">
+                <td>{{exam.courseCode}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table" style="text-align: center;">
+            <thead class="thead-dark">
+              <tr>
                 <th scope="col">12:00noon - 3:00pm</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let exam of exams[i].afternoonPaper">
+                <td>{{exam.courseCode}}</td>
+              </tr>
+            </tbody>
+          </table>
+          <table class="table" style="text-align: center;">
+            <thead class="thead-dark">
+              <tr>
                 <th scope="col">3:00pm - 6:00pm</th>
               </tr>
             </thead>
-            <!-- <tbody>
-              <ng-container *ngFor="let x of morningPaper;">
-                <ng-container *ngFor="let y of afternoonPaper;">
-                  <tr *ngFor="let z of eveningPaper">
-                    <td>{{ x?.courseCode }}</td>
-                      <td>{{ y?.courseCode }}</td>
-                      <td>{{z?.courseCode}}</td>
-                    </tr>
-                  </ng-container>
-                </ng-container>
-            </tbody> -->
+            <tbody>
+              <tr *ngFor="let exam of exams[i].eveningPaper">
+                <td>{{exam.courseCode}}</td>
+              </tr>
+            </tbody>
           </table>
-      </ng-container>
+        </div>
     </div>
   </div>
 </div>

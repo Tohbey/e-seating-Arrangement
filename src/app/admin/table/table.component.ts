@@ -16,43 +16,43 @@ export class TableComponent implements OnInit {
   eveningPaper: any[];
   examDates: String[];
   exams: any[] = [];
+  isloading:boolean[];
   constructor(private courseService: CourseService) { }
   showTable: boolean[];
 
-  ngOnInit() {}
-
+  ngOnInit(){
+  }
   ngOnChanges() {
     this.GetExamDates(this.week);
   }
-  getTable(i: any ) {
-    console.log(i);
-    const index = this.examDates.findIndex(dates => dates === i );
-    console.log(index);
-    this.showTable[i] = !this.showTable[i];
+  getTable(examdate){
+    let index = this.examDates.findIndex(dates => dates === examdate )
+    console.log(index, this.exams)
+    this.showTable[index]=!this.showTable[index];
     console.log('exam Date,', this.examDates[index]);
-    this.exams[index].examDay = this.examDates[index];
-    this.getExams(this.examDates[index], '9am-12noon', index);
-    this.getExams(this.examDates[index], '12noon-3pm', index);
+    console.log(this.examDates[index]);
+    this.getExams(this.examDates[index], '9am-12noon',index);
+    this.getExams(this.examDates[index], '12noon-3pm',index);
     this.getExams(this.examDates[index], '3pm-6pm', index);
+    this.isloading[index] = true;
     console.log(this.exams);
-    console.log(this.exams[index]);
-
   }
 
-  returnFalse(length) {
-    for (let i = 0; i < length; i++) {
-      this.showTable[i] = false;
+  returnFalse(length){
+    for(let i=0;i<length;i++){
+      this.showTable[i] = false
     }
   }
 
   returnObject(length) {
+    this.isloading = new Array(length);
     for (let i = 0; i < length; i++) {
       this.exams[i] = new Exam();
+      this.isloading[i] = false
     }
   }
-
-  GetExamDates(week) {
-    const resp = this.courseService.getExamdates(week);
+  GetExamDates(week){
+    let resp = this.courseService.getExamdates(week);
     resp.subscribe((data) => {
       this.examDates = data;
       this.showTable = new Array(this.examDates.length);
@@ -61,8 +61,8 @@ export class TableComponent implements OnInit {
       this.returnObject(this.exams.length);
       console.log(this.exams);
       console.log(this.showTable);
-    });
-    return this.examDates;
+    })
+    return this.examDates
   }
 
   getExams(date, time, i) {
