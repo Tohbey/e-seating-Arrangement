@@ -9,16 +9,15 @@ import { CourseService } from 'src/app/Services/courseService/course.service';
 })
 export class TableComponent implements OnInit {
 
-  examDate:string;
-  @Input() week:string
-  morningPaper:any[];
-  afternoonPaper:any[];
-  eveningPaper:any[];
-  examDates:String[];
-  constructor(private courseService:CourseService) { }
-  exams:any[] = [];
-  showTable:boolean[];
-
+  @Input() week: string;
+  morningPaper: any[];
+  afternoonPaper: any[];
+  eveningPaper: any[];
+  examDates: String[];
+  exams: any[] = [];
+  isloading:boolean[];
+  constructor(private courseService: CourseService) { }
+  showTable: boolean[];
 
   ngOnInit(){
   }
@@ -34,6 +33,7 @@ export class TableComponent implements OnInit {
     this.getExams(this.examDates[index], '9am-12noon',index);
     this.getExams(this.examDates[index], '12noon-3pm',index);
     this.getExams(this.examDates[index], '3pm-6pm', index);
+    this.isloading[index] = true;
     console.log(this.exams);
   }
 
@@ -44,8 +44,10 @@ export class TableComponent implements OnInit {
   }
 
   returnObject(length) {
+    this.isloading = new Array(length);
     for (let i = 0; i < length; i++) {
       this.exams[i] = new Exam();
+      this.isloading[i] = false
     }
   }
   GetExamDates(week){

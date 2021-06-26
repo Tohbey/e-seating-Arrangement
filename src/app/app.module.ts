@@ -17,13 +17,15 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ToastrModule } from 'ngx-toastr';
 import { WrongRouteComponent } from './wrong-route/wrong-route.component';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
+import { MatProgressBarModule } from '@angular/material'
 @NgModule({
   declarations: [
     AppComponent,
     WrongRouteComponent
   ],
   exports:[
-    NgxSkeletonLoaderModule
+    NgxSkeletonLoaderModule,
+    MatProgressBarModule
   ],
   imports: [
     BrowserModule,
@@ -38,6 +40,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     BrowserAnimationsModule,
     NgxPaginationModule,
     FontAwesomeModule,
+    MatProgressBarModule,
     NgxSkeletonLoaderModule.forRoot(),
     ToastrModule.forRoot()
   ],

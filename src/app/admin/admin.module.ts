@@ -16,7 +16,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
-
+import { MatProgressBarModule } from '@angular/material';
 @NgModule({
   declarations: [
     AdminComponent,
@@ -35,6 +35,7 @@ import { NgxSkeletonLoaderModule } from 'ngx-skeleton-loader';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    MatProgressBarModule,
     NgxPaginationModule,
     FontAwesomeModule,
     NgxSkeletonLoaderModule.forRoot()
