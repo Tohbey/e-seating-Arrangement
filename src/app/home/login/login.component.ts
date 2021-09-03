@@ -15,13 +15,13 @@ export class LoginComponent implements OnInit {
 
   submitted = false;
   lecturer: FormGroup;
-  student:FormGroup;
+  student: FormGroup;
   message: any;
   user: User = new User();
   role;
   invalidLogin: boolean;
   errorMessage = 'Invalid Credentials';
-  errorMessage1:any;
+  errorMessage1: any;
   screenSize
 
   constructor(
@@ -43,10 +43,10 @@ export class LoginComponent implements OnInit {
     });
   }
 
-  studentForm(){
+  studentForm() {
     this.student = this.formBuilder.group({
-      matricNumber:['',Validators.required],
-      password:['',Validators.required]
+      matricNumber: ['', Validators.required],
+      password: ['', Validators.required]
     })
   }
 
@@ -57,40 +57,41 @@ export class LoginComponent implements OnInit {
     return this.student.controls;
   }
 
-  asLecturer(){
+  asLecturer() {
     this.invalidLogin = false
-    if(this.screenSize < 596.5){
+    if (this.screenSize < 596.5) {
       document.getElementById('lecturer').style.display = 'block'
       document.getElementById('lecture-image').style.display = 'block'
       document.getElementById('student-image').style.display = 'none'
       document.getElementById('student').style.display = 'none'
     }
-    else{
+    else {
       document.getElementById('lecturer').style.display = 'block'
       document.getElementById('student').style.display = 'none'
     }
 
   }
 
-  asStudent(){
+  asStudent() {
     this.invalidLogin = false
-    if(this.screenSize < 596.5){
+    if (this.screenSize < 596.5) {
       document.getElementById('lecturer').style.display = 'none'
       document.getElementById('lecture-image').style.display = 'none'
       document.getElementById('student-image').style.display = 'block'
       document.getElementById('student').style.display = 'block'
-    }else{
+    } else {
       document.getElementById('lecturer').style.display = 'none'
       document.getElementById('student').style.display = 'block'
     }
   }
 
 
-  studentLogin(){
+  studentLogin() {
     this.submitted = true;
     if (this.student.invalid) {
       return;
     }
+    this.student.disable();
     console.log(this.student.value);
     const username = this.student.get('matricNumber').value;
     const password = this.student.get('password').value;
@@ -111,6 +112,7 @@ export class LoginComponent implements OnInit {
       }, error => {
         console.log(error);
         this.invalidLogin = true;
+        this.student.enable();
       }
     );
   }
@@ -120,6 +122,7 @@ export class LoginComponent implements OnInit {
     if (this.lecturer.invalid) {
       return;
     }
+    this.lecturer.disable();
     console.log(this.lecturer.value);
     const username = this.lecturer.get('email').value;
     const password = this.lecturer.get('password').value;
@@ -133,9 +136,9 @@ export class LoginComponent implements OnInit {
           console.log(this.role);
           if (this.role === 'Admin') {
             this.router.navigate(['../admin']);
-          } else if(this.role === 'Coordinator'){
+          } else if (this.role === 'Coordinator') {
             this.router.navigate(['../coordinator']);
-          }else{
+          } else {
             this.invalidLogin = true;
             this.errorMessage1 = "Switch to Student login"
             this.submitted = false;
