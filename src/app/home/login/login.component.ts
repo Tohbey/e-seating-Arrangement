@@ -13,7 +13,8 @@ import { UsersService } from 'src/app/Services/userService/users.service';
 })
 export class LoginComponent implements OnInit {
 
-  submitted = false;
+  submittedLecture = false;
+  submittedStudent = false;
   lecturer: FormGroup;
   student: FormGroup;
   message: any;
@@ -87,11 +88,10 @@ export class LoginComponent implements OnInit {
 
 
   studentLogin() {
-    this.submitted = true;
+    this.submittedLecture = true;
     if (this.student.invalid) {
       return;
     }
-    this.student.disable();
     console.log(this.student.value);
     const username = this.student.get('matricNumber').value;
     const password = this.student.get('password').value;
@@ -106,7 +106,7 @@ export class LoginComponent implements OnInit {
           if (this.role === 'Student') {
             this.router.navigate(['../student']);
           } else {
-            this.submitted = false;
+            this.submittedLecture = false;
           }
         });
       }, error => {
@@ -118,11 +118,10 @@ export class LoginComponent implements OnInit {
   }
 
   lecturerLogin() {
-    this.submitted = true;
+    this.submittedStudent = true;
     if (this.lecturer.invalid) {
       return;
     }
-    this.lecturer.disable();
     console.log(this.lecturer.value);
     const username = this.lecturer.get('email').value;
     const password = this.lecturer.get('password').value;
@@ -141,7 +140,7 @@ export class LoginComponent implements OnInit {
           } else {
             this.invalidLogin = true;
             this.errorMessage1 = "Switch to Student login"
-            this.submitted = false;
+            this.submittedStudent = false;
           }
         });
       }, error => {

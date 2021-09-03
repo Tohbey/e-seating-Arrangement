@@ -50,7 +50,7 @@
                   class="form-control form-custom"
                   name="email"
                   formControlName="email"
-                  [ngClass]="{ 'is-invalid': submitted && f.email.errors }"
+                  [ngClass]="{ 'is-invalid': submittedLecture && f.email.errors }"
                 />
                 <div *ngIf="f.email.errors" class="invalid-feedback">
                   <div *ngIf="f.email.errors.required">email is required</div>
@@ -66,7 +66,7 @@
                   class="form-control form-custom"
                   name="password"
                   formControlName="password"
-                  [ngClass]="{ 'is-invalid': submitted && f.password.errors }"
+                  [ngClass]="{ 'is-invalid': submittedLecture && f.password.errors }"
                 />
                 <div *ngIf="f.password.errors" class="invalid-feedback">
                   <div *ngIf="f.password.errors.required">
@@ -79,17 +79,14 @@
             <button
               class="btn"
               value="submit"
-              [disabled]="lecturer.disable"
               type="submit"
-              mat-flat-button
               (click)="lecturerLogin()"
+              style="display: flex; flex-direction: column; align-items: center;"
             >
-              <span *ngIf="lecturer.disable"> Login </span>
-              <mat-progress-spinner
-                *ngIf="!lecturer.disable"
-                [diameter]="24"
-                [mode]="'indeterminate'"
-              ></mat-progress-spinner>
+              <span *ngIf="!submittedLecture"> Login </span>
+              <mat-progress-spinner *ngIf="submittedLecture"
+              [diameter]="24" class="custom-spinner"
+              [mode]="'indeterminate'"></mat-progress-spinner>
             </button>
           </form>
         </div>
@@ -113,7 +110,7 @@
                   name="matricNumber"
                   formControlName="matricNumber"
                   [ngClass]="{
-                    'is-invalid': submitted && g.matricNumber.errors
+                    'is-invalid': submittedStudent && g.matricNumber.errors
                   }"
                 />
                 <div *ngIf="g.matricNumber.errors" class="invalid-feedback">
@@ -132,7 +129,7 @@
                   class="form-control form-custom"
                   name="password"
                   formControlName="password"
-                  [ngClass]="{ 'is-invalid': submitted && g.password.errors }"
+                  [ngClass]="{ 'is-invalid': submittedStudent && g.password.errors }"
                 />
                 <div *ngIf="g.password.errors" class="invalid-feedback">
                   <div *ngIf="g.password.errors.required">
@@ -148,10 +145,9 @@
               type="submit"
               (click)="studentLogin()"
             >
-              <span *ngIf="!student.disabled"> Login </span>
-              <mat-progress-spinner
-                *ngIf="student.disabled"
-                [diameter]="24"
+              <span *ngIf="!submittedStudent"> Login </span>
+              <mat-progress-spinner *ngIf="!submittedStudent"
+                [diameter]="24" class="custom-spinner"
                 [mode]="'indeterminate'"
               ></mat-progress-spinner>
             </button>

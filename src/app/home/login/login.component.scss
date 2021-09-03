@@ -2,6 +2,10 @@
 @import '../../sass/variables';
 $main-color: #707BB0;
 
+:host ::ng-deep .custom-spinner circle{
+  stroke: #0CC20C;
+}
+
 .login{
   display: grid;
   width:100%;
