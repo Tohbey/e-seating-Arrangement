@@ -73,7 +73,7 @@ export class UserAccessComponent implements OnInit {
 
   onDelete(id){
     console.log(id);
-    const value = window.confirm('Note: that deleting a User would terminate the user-access' + 'are you sure you want to delete? ');
+    const value = window.confirm('Note: that deleting a User would terminate the user-access' + ' are you sure you want to delete? ');
     console.log('Alert Response', value);
     if(value){
       this.userService.deleteUserById(id).subscribe(data => {

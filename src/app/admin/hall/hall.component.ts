@@ -73,7 +73,6 @@ export class HallComponent implements OnInit {
     })
     this.AllHall();
     this.AllCoordinatorNames();
-    this.getAllNames();
     this.paginationConfig={
       itemsPerPage:this.itemsPerPage,
       currentPage:1,
@@ -162,6 +161,7 @@ export class HallComponent implements OnInit {
       this.isloading = false;
       this.halls = data;
       console.log(this.halls)
+      this.getAllNames();
     })
     return this.halls;
   }
@@ -184,6 +184,7 @@ export class HallComponent implements OnInit {
     document.getElementById('updateHall').style.display ='none';
     document.getElementById('view').style.display ='none';
     document.getElementById('generate').style.display = 'none';
+    document.getElementById('seatsPerProgramme').style.display ='none';
   }
 
   onDelete(id:String){
