@@ -89,6 +89,7 @@ export class HallService {
 
     //generate seats
     generateExamSessions(hallName, mode:Mode):Observable<ExamSession>{
+      console.log(this.hallUrl+"/generateSessions/"+hallName, mode);
         return this.http.post<ExamSession>(
           this.hallUrl+"/generateSessions/"+hallName, mode)
         .pipe(
@@ -132,7 +133,7 @@ export class HallService {
       errorMessage = error.error.message;
     }else{
       //get serve-side error
-      errorMessage = 'Error Code: $(error.status)\n Message:$(error.error.message)'
+      errorMessage = `Error Code: ${error.status}\n Message:${error.error.message}`;
       }
     console.log(errorMessage);
     return throwError(errorMessage);

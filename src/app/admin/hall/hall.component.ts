@@ -142,11 +142,10 @@ export class HallComponent implements OnInit {
     let resp = this.hallService.generateExamSessions(hallName, this.mode);
     resp.subscribe((data) => {
       this.session.push(data);
-      this.notifyService.showSuccess("Seats has been generated "+this.session[0].seats.length,this.title)
       this.AllHall();
     })
-
     console.log("Generated Successfully");
+    document.getElementById('generate').style.display = 'none'
   }
 
   onDIsplay(){
@@ -189,7 +188,7 @@ export class HallComponent implements OnInit {
 
   onDelete(id:String){
     console.log(id);
-    const value = window.confirm('Note: that deleting a coordinator would terminate the coordinator' + 'are you sure you want to delete? ');
+    const value = window.confirm('Are you sure you want to delete? ');
     console.log('Alert Response', value);
     if(value){
       this.hallService.deleteHallById(id).subscribe(data => {

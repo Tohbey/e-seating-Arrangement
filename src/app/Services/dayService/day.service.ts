@@ -34,7 +34,7 @@ export class DayService{
       errorMessage = error.error.message;
     }else{
       //get serve-side error
-      errorMessage = 'Error Code: $(error.status)\n Message:$(error.error.message)'
+      errorMessage = `Error Code: ${error.status}\n Message:${error.error.message}`;
       }
     console.log(errorMessage);
     return throwError(errorMessage);
