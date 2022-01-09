@@ -46,8 +46,9 @@ export class UserAccessComponent implements OnInit {
       userIsActive:['',Validators.required],
       roles: new FormArray([])
     })
-    this.AllUsers();
+    this.AllLecture();
     this.AllEmails();
+    this.AllUsers()
     this.coordinatorSize();
     this.paginationConfig = {
       itemsPerPage:this.itemPerPage,
@@ -77,7 +78,7 @@ export class UserAccessComponent implements OnInit {
     console.log('Alert Response', value);
     if(value){
       this.userService.deleteUserById(id).subscribe(data => {
-        this.AllUsers()
+        this.AllLecture()
       })
     }
     else{
@@ -127,6 +128,7 @@ export class UserAccessComponent implements OnInit {
     this.userDetail = this.userForm.value;
     console.log(this.userDetail)
     this.userService.createUser(this.userDetail).subscribe((data) => {
+      this.AllLecture()
       this.AllUsers()
     })
     this.userForm.reset()
@@ -139,14 +141,21 @@ export class UserAccessComponent implements OnInit {
   }
 
 
-  AllUsers(){
-    let resp = this.userService.getAllUser();
+  AllLecture(){
+    let resp = this.userService.getAllLectures();
     resp.subscribe((data) => {
       this.users = data;
       this.isloading = false;
       console.log(this.users)
     })
     return this.users;
+  }
+
+  AllUsers(){
+    let resp = this.userService.getAllUsers();
+    resp.subscribe((data) => {
+      console.log(data)
+    })
   }
 
   pageChanged(event){

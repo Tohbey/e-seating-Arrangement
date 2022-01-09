@@ -46,7 +46,7 @@ export class HallComponent implements OnInit {
   ngOnInit(): void {
     this.hallForm = this.formBuilder.group({
       hallName:['',Validators.required],
-      hallSize:['',Validators.required],
+      hallSize:[''],
       hallRow:['',Validators.required],
       hallColumn:['',Validators.required],
       rowSection:['',Validators.required],
@@ -92,6 +92,7 @@ export class HallComponent implements OnInit {
     }
     this.hallDetail = this.hallForm.value;
     this.hallDetail.faculty = "Engineering";
+    this.hallDetail.hallSize = this.hallDetail.hallRow * this.hallDetail.hallColumn * this.hallDetail.rowSection
     console.log(this.hallDetail);
     this.hallService.createHall(this.hallDetail).subscribe((data)=>{
       this.notifyService.showSuccess("Hall Created",this.title)

@@ -26,7 +26,7 @@
           <td class="table-text">{{user?.department}}</td>
           <td class="table-text">{{user?.userIsActive}}</td>
           <td class="table-text">{{user?.userPhoneNumber}}</td>
-          <td class="table-text">{{user?.roles[0].role}}</td>
+          <td class="table-text">{{user?.roles[0]?.role}}</td>
           <td>
             <button style="margin-right: 5px;" class="button" (click)="onDelete(user?.id)">
               <fa-icon style="color:#C82333;" [icon]="delete" size="2x" ></fa-icon>

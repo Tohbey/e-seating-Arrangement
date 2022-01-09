@@ -19,8 +19,17 @@ export class UsersService {
   }
 
   //get all users
-  getAllUser():Observable<User>{
+  getAllLectures():Observable<User>{
     return this.http.get<User>(this.userUrl+"/lectures")
+    .pipe(
+      retry(1),
+      catchError(this.handleError)
+    )
+  }
+
+  //get all users
+  getAllUsers():Observable<User>{
+    return this.http.get<User>(this.userUrl)
     .pipe(
       retry(1),
       catchError(this.handleError)

@@ -145,11 +145,7 @@
               type="submit"
               (click)="studentLogin()"
             >
-              <span *ngIf="!submittedStudent"> Login </span>
-              <mat-progress-spinner *ngIf="!submittedStudent"
-                [diameter]="24" class="custom-spinner"
-                [mode]="'indeterminate'"
-              ></mat-progress-spinner>
+              <span> Login </span>
             </button>
           </form>
         </div>

@@ -91,13 +91,14 @@ export class SeatComponent implements OnInit {
   }
 
   generateSeat(){
-    document.getElementById('exam-pass').style.display = 'block';
     let resp = this.studentService.generateStudentSeat(this.studentDetail.id)
     resp.subscribe((data) => {
       this.examSeat = data;
       this.notifyService.showSuccess("Seat generated successfully",this.title)
       console.log(this.examSeat)
+      this.getStudent()
     })
+    document.getElementById('exam-pass').style.display = 'block';
     return this.studentExamCourses;
   }
 }

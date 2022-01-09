@@ -6,8 +6,8 @@ export class Hall{
   hallName:string;
   hallSize:number;
   department:String;
-  hallRow:String;
-  hallColumn:String;
+  hallRow:number;
+  hallColumn:number;
   hallMainCoordinator:String;
   hallAssistanceCoordinator:String;
   rowSection:number;
